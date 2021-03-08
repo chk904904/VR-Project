@@ -23,22 +23,22 @@ public class headPosTracker : MonoBehaviour
     void Update(){
         headsetPos = centerEye.transform.position;
         if(shouldDodge){
-        	dodgeTimer();
+          dodgeTimer();
         }
     }
 
-  	void dodgeTimer()
-  	{
-    	StartCorountine(CheckDodge());
-  	}
+    void dodgeTimer()
+    {
+      StartCoroutine(CheckDodge());
+    }
 
  
- 	IEnumerator CheckDodge()
- 	{
+  IEnumerator CheckDodge()
+  {
       bool success = false;
-      while( success == false && timer > 0f )
+      while( success == false && responseTime > 0f )
       {
-             timer -= Time.deltaTime; // reduce timer 
+             responseTime -= Time.deltaTime; // reduce timer 
              success = successDodge();
              //Input.GetKeyDown(KeyCode.R);
              yield return null;
@@ -49,59 +49,59 @@ public class headPosTracker : MonoBehaviour
              yield break;
       }
       success = false;
-      timer = 1.75f;
-      while( success == false && timer > 0f )
+      responseTime = 1.75f;
+      while( success == false && responseTime > 0f )
       {
-             timer -= Time.deltaTime; // reduce timer 
+             responseTime -= Time.deltaTime; // reduce timer 
              success = successDodge();
              //Input.GetKeyDown(KeyCode.V);
              yield return null;
       }
-      if(success == false && timer <= 0f ) 
+      if(success == false && responseTime <= 0f ) 
       {
              Debug.Log("Lost");
              yield break;
       }
       Debug.Log("Won");
- 	}
+  }
 
- 	bool successDodge(){
- 		bool isSuccessful = true;
- 		float xDiff = headsetPos.x - initialPos.x; 
- 		float yDiff = headsetPos.y - initialPos.y; 
- 		float zDiff = headsetPos.z - initialPos.z;
- 		if(dodgeVector.x < 0){
- 			if(xDiff > dodgeVector.x){
- 				isSuccessful = false;
- 			}
- 		} 
- 		else{
- 			if(xDiff < dodgeVector.x){
- 				isSuccessful = false;
- 			}
- 		}
+  bool successDodge(){
+    bool isSuccessful = true;
+    float xDiff = headsetPos.x - initialPos.x; 
+    float yDiff = headsetPos.y - initialPos.y; 
+    float zDiff = headsetPos.z - initialPos.z;
+    if(dodgeVector.x < 0){
+      if(xDiff > dodgeVector.x){
+        isSuccessful = false;
+      }
+    } 
+    else{
+      if(xDiff < dodgeVector.x){
+        isSuccessful = false;
+      }
+    }
 
- 		if(dodgeVector.y < 0){
- 			if(yDiff > dodgeVector.y){
- 				isSuccessful = false;
- 			}
- 		}
- 		else{
- 			if(yDiff < dodgeVector.y){
- 				isSuccessful = false;
- 			}
- 		}
+    if(dodgeVector.y < 0){
+      if(yDiff > dodgeVector.y){
+        isSuccessful = false;
+      }
+    }
+    else{
+      if(yDiff < dodgeVector.y){
+        isSuccessful = false;
+      }
+    }
 
- 		if(dodgeVector.z < 0){
- 			if(zDiff > dodgeVector.z){
- 				isSuccessful = false;
- 			}
- 		}
- 		else{
- 			if(zDiff < dodgeVector.z){
- 				isSuccessful = false;
- 			}
- 		}
- 		return isSuccessful;
- 	}
+    if(dodgeVector.z < 0){
+      if(zDiff > dodgeVector.z){
+        isSuccessful = false;
+      }
+    }
+    else{
+      if(zDiff < dodgeVector.z){
+        isSuccessful = false;
+      }
+    }
+    return isSuccessful;
+  }
 }
