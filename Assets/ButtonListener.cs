@@ -67,6 +67,10 @@ public class ButtonListener : MonoBehaviour
                         curIndex += 1;
                     }
                     else{
+                        for(int i = 0; i < patternIndexesLocal.Count ; i++){
+                            GameObject curColor = textBox.transform.transform.GetChild(patternIndexesLocal[i]).gameObject;
+                            curColor.SetActive(true);
+                        }
                         curIndex = 0; 
                     }
                 } else
@@ -79,6 +83,10 @@ public class ButtonListener : MonoBehaviour
                         curIndex += 1;
                     }
                     else{
+                        for(int i = 0; i < patternIndexesLocal.Count ; i++){
+                            GameObject curColor = textBox.transform.transform.GetChild(patternIndexesLocal[i]).gameObject;
+                            curColor.SetActive(true);
+                        }
                         curIndex = 0; 
                     }
                 }
@@ -94,7 +102,11 @@ public class ButtonListener : MonoBehaviour
                         curIndex += 1;
                     }
                     else{
-                        curIndex = 0; 
+                        for(int i = 0; i < patternIndexesLocal.Count ; i++){
+                            GameObject curColor = textBox.transform.transform.GetChild(patternIndexesLocal[i]).gameObject;
+                            curColor.SetActive(true);
+                        }
+                        curIndex = 0;
                     }
                 }
                 else
@@ -106,7 +118,11 @@ public class ButtonListener : MonoBehaviour
                         curIndex += 1;
                     }
                     else{
-                        curIndex = 0; 
+                        for(int i = 0; i < patternIndexesLocal.Count ; i++){
+                            GameObject curColor = textBox.transform.transform.GetChild(patternIndexesLocal[i]).gameObject;
+                            curColor.SetActive(true);
+                        }
+                        curIndex = 0;
                     }
                 }
             } else
@@ -120,6 +136,10 @@ public class ButtonListener : MonoBehaviour
                         curIndex += 1;
                     }
                     else{
+                        for(int i = 0; i < patternIndexesLocal.Count ; i++){
+                            GameObject curColor = textBox.transform.transform.GetChild(patternIndexesLocal[i]).gameObject;
+                            curColor.SetActive(true);
+                        }
                         curIndex = 0; 
                     }
                 }
@@ -132,6 +152,10 @@ public class ButtonListener : MonoBehaviour
                         curIndex += 1;
                     }
                     else{
+                        for(int i = 0; i < patternIndexesLocal.Count ; i++){
+                            GameObject curColor = textBox.transform.transform.GetChild(patternIndexesLocal[i]).gameObject;
+                            curColor.SetActive(true);
+                        }
                         curIndex = 0; 
                     }
                 }
