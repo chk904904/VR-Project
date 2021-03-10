@@ -1,17 +1,14 @@
 fileFormatVersion: 2
-guid: fea9cb492db85df4e90918cfd3a5bb60
+guid: 06d0d3054fb33b641b3227e210b40b63
 ModelImporter:
   serializedVersion: 19301
-  internalIDToNameTable:
-  - first:
-      74: 1827226128182048838
-    second: Take 001
+  internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: punchingBagMat
-    second: {fileID: 2100000, guid: 6edb9d2dccfc84946a64d6ac5e1f6bce, type: 2}
+    second: {fileID: 2100000, guid: 5b4de1f4292bdd644b82ea6299172168, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
