@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{D994F495-CFA7-2A6C-2B3D-ADD49EA086E2}</ProjectGuid>
+    <ProjectGuid>{87639D6C-2855-C9C0-583E-B592C7931785}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Oculus.Platform.Editor</AssemblyName>
@@ -267,7 +267,7 @@
       <HintPath>C:/Program Files (x86)/Microsoft Visual Studio Tools for Unity/16.0/Editor/SyntaxTree.VisualStudio.Unity.Bridge.dll</HintPath>
     </Reference>
     <Reference Include="nunit.framework">
-      <HintPath>C:/Users/kuanc/Desktop/Project3/VR test/VR test/VR test/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
+      <HintPath>C:/Users/kuanc/Desktop/Project3/VR-Test/VR-Project/Library/PackageCache/com.unity.ext.nunit@1.0.6/net35/unity-custom/nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="mscorlib">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.20f1/Editor/Data/MonoBleedingEdge/lib/mono/4.7.1-api/mscorlib.dll</HintPath>
@@ -623,22 +623,22 @@
     <Reference Include="Boo.Lang">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.20f1/Editor/Data/MonoBleedingEdge/lib/mono/unityscript/Boo.Lang.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>C:/Users/kuanc/Desktop/Project3/VR test/VR test/VR test/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.UI">
-      <HintPath>C:/Users/kuanc/Desktop/Project3/VR test/VR test/VR test/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+      <HintPath>C:/Users/kuanc/Desktop/Project3/VR-Test/VR-Project/Library/ScriptAssemblies/UnityEditor.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>C:/Users/kuanc/Desktop/Project3/VR-Test/VR-Project/Library/ScriptAssemblies/UnityEngine.UI.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.TestRunner">
-      <HintPath>C:/Users/kuanc/Desktop/Project3/VR test/VR test/VR test/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
+      <HintPath>C:/Users/kuanc/Desktop/Project3/VR-Test/VR-Project/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.TestRunner">
-      <HintPath>C:/Users/kuanc/Desktop/Project3/VR test/VR test/VR test/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
+      <HintPath>C:/Users/kuanc/Desktop/Project3/VR-Test/VR-Project/Library/ScriptAssemblies/UnityEngine.TestRunner.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Oculus.Platform.csproj">
-      <Project>{8B80C728-4895-994B-075E-4BE89EC0FC76}</Project>
+      <Project>{BEB372F0-79B9-7B9C-B173-734A86BCADDD}</Project>
       <Name>Oculus.Platform</Name>
     </ProjectReference>
   </ItemGroup>
