@@ -74,6 +74,7 @@ public class ButtonListener : MonoBehaviour
                 curPunching = 0;
                 Array.Clear(curCombo, 0, curCombo.Length);
                 score++;
+                ModelController.MC.instantiateModel(7);
                 text.text = "Score: " + score.ToString();
                 textBox.GetComponent<PatternController>().generatingCombo();
             }
