@@ -50,3 +50,6 @@ public class audioController : MonoBehaviour
     }
 
 }
+
+//How to use this:
+//AudioController.AC.PlayPlayer3(audioName);

@@ -15,11 +15,15 @@ public class ModelController : MonoBehaviour
 	//This is the placeholder for the instantiated object. For deletion only
 	public GameObject model;
 	List<GameObject> models = new List<GameObject>();
+	public static ModelController MC;
+	private GameObject originalModel;
+	private Vector3 originalModelPos;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        models.Add(bag1);
+	void Awake(){
+		MC = this;
+		originalModel = GameObject.Find("00punchingBag_Rigged").transform.GetChild(0).gameObject;
+		originalModelPos = originalModel.transform.position;
+		models.Add(bag1);
         models.Add(bag2);
         models.Add(bag3);
         models.Add(bag4);
@@ -27,21 +31,29 @@ public class ModelController : MonoBehaviour
         models.Add(bag6);
         models.Add(bag7);
         models.Add(bagSuccess);
+
+	}
+
+    // Start is called before the first frame update
+    void Start()
+    {
     }
 
     public void instantiateModel(int modelIndex){
-    	GameObject originalModel = GameObject.Find("punchingBag_Rigged").transform.GetChild(0).gameObject;
-    	originalModel.SetActive(false);
-    	Vector3 originalModelPos = originalModel.transform.position;
-    	GameObject modelToInstantiate = models[modelIndex];
+    	if(originalModel.activeInHierarchy){
+    		originalModel.SetActive(false);
+    	}
     	//instantiate a model
+    	GameObject modelToInstantiate = models[modelIndex];
+    	Debug.Log(originalModelPos);
 		model = Instantiate(modelToInstantiate, originalModelPos, Quaternion.identity);
+		model.transform.localScale = new Vector3(0.3f*50, 0.3f*50, 0.3f*50);
     }
 
     public void recoverOriginalModel(){
     	//remove the instantiated model
     	Destroy (model);
-    	GameObject originalModel = GameObject.Find("punchingBag_Rigged").transform.GetChild(0).gameObject;
+    	GameObject originalModel = GameObject.Find("00punchingBag_Rigged").transform.GetChild(0).gameObject;
     	originalModel.SetActive(true);
     }
 }

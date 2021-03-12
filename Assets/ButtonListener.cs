@@ -45,6 +45,8 @@ public class ButtonListener : MonoBehaviour
         GetComponent<ButtonController>().InteractableStateChanged.RemoveListener(InitiateEvent);
         foreach(Transform child in textBox.transform)
         {
+            //TODO: swap back here
+            ModelController.MC.recoverOriginalModel();
             child.gameObject.SetActive(false);
         }
     }
@@ -60,6 +62,8 @@ public class ButtonListener : MonoBehaviour
             }
             if (curCombo[curPunching] == punchingDetect(state))
             {
+                //TODO: swap back here
+                ModelController.MC.recoverOriginalModel();
                 textBox.transform.GetChild(curPunching).gameObject.SetActive(false);
                 curPunching++;
             }
