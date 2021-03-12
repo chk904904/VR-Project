@@ -36,21 +36,13 @@ public class PatternController : MonoBehaviour
             squares[i] = this.gameObject.transform.GetChild(i).gameObject;
             squares[i].SetActive(false);
         }
-
-        //The following code can be used to test the model swapping
-        //StartCoroutine(test());
+        ModelController.MC.recoverOriginalModel();
     }
 
-    //The following code can be used to test the model swapping
-    // IEnumerator test(){
-    //     System.Random rd = new System.Random();
-    //     int comboIndex = rd.Next(0, combos.Length);
-    //     for(int i = 0; i < combos[comboIndex].Length; i++){
-    //         Debug.Log(i);
-    //         ModelController.MC.instantiateModel(i);
-    //         yield return new WaitForSeconds(0.5f);
-    //     }
-    // }
+    IEnumerator lightUpModel(i){
+        ModelController.MC.instantiateModel(i);
+        yield return new WaitForSeconds(0.5f);
+    }
 
     public void generatingCombo()
     {
@@ -59,12 +51,17 @@ public class PatternController : MonoBehaviour
         for (int i = 0; i < combos[comboIndex].Length; i++)
         {
             //swap the model
-            ModelController.MC.instantiateModel(i);
-            // squares[i].GetComponent<Image>().color = punchingColors[combos[comboIndex][i] - 1];
-            // squares[i].GetComponentInChildren<Text>().text = punchings[combos[comboIndex][i] - 1];
-            // squares[i].SetActive(true);
+            //ModelController.MC.instantiateModel(i);
+            squares[i].GetComponent<Image>().color = punchingColors[combos[comboIndex][i] - 1];
+            squares[i].GetComponentInChildren<Text>().text = punchings[combos[comboIndex][i] - 1];
+            squares[i].SetActive(true);
 
         }
+        for (int i = 0; i < combos[comboIndex].Length; i++)
+        {
+            StartCoroutine(lightUpModel(i));
+        }
+        
         listener.comboSetter(combos[comboIndex]);
     }
     // Update is called once per frame
