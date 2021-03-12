@@ -19,7 +19,6 @@ public class ModelController : MonoBehaviour
 	private GameObject originalModel;
 	private Vector3 originalModelPos;
 
-
 	void Awake(){
 		MC = this;
 		originalModel = GameObject.Find("00punchingBag_Rigged").transform.GetChild(0).gameObject;
@@ -47,7 +46,7 @@ public class ModelController : MonoBehaviour
     	//instantiate a model
     	GameObject modelToInstantiate = models[modelIndex];
     	Debug.Log(originalModelPos);
-		model = Instantiate(modelToInstantiate, originalModelPos, originalModel.transform.rotation);
+		model = Instantiate(modelToInstantiate, originalModelPos, Quaternion.identity);
 		model.transform.localScale = new Vector3(0.3f*50, 0.3f*50, 0.3f*50);
     }
 
