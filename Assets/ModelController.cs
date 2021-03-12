@@ -46,7 +46,7 @@ public class ModelController : MonoBehaviour
     	//instantiate a model
     	GameObject modelToInstantiate = models[modelIndex];
     	Debug.Log(originalModelPos);
-		model = Instantiate(modelToInstantiate, originalModelPos, Quaternion.identity);
+		model = Instantiate(modelToInstantiate, originalModelPos, originalModel.transform.rotation);
 		model.transform.localScale = new Vector3(0.3f*50, 0.3f*50, 0.3f*50);
     }
 
