@@ -39,10 +39,10 @@ public class PatternController : MonoBehaviour
         ModelController.MC.recoverOriginalModel();
     }
 
-    IEnumerator lightUpModel(i){
-        ModelController.MC.instantiateModel(i);
-        yield return new WaitForSeconds(0.5f);
-    }
+    //IEnumerator lightUpModel(i){
+    //    ModelController.MC.instantiateModel(i);
+    //    yield return new WaitForSeconds(0.5f);
+    //}
 
     public void generatingCombo()
     {
@@ -59,7 +59,7 @@ public class PatternController : MonoBehaviour
         }
         for (int i = 0; i < combos[comboIndex].Length; i++)
         {
-            StartCoroutine(lightUpModel(i));
+            //StartCoroutine(lightUpModel(i));
         }
         
         listener.comboSetter(combos[comboIndex]);

@@ -46,7 +46,7 @@ public class ButtonListener : MonoBehaviour
         foreach(Transform child in textBox.transform)
         {
             //TODO: swap back here
-            ModelController.MC.recoverOriginalModel();
+            //ModelController.MC.recoverOriginalModel();
             child.gameObject.SetActive(false);
         }
     }
@@ -63,7 +63,7 @@ public class ButtonListener : MonoBehaviour
             if (curCombo[curPunching] == punchingDetect(state))
             {
                 //TODO: swap back here
-                ModelController.MC.recoverOriginalModel();
+                //ModelController.MC.recoverOriginalModel();
                 textBox.transform.GetChild(curPunching).gameObject.SetActive(false);
                 curPunching++;
             }
@@ -74,7 +74,7 @@ public class ButtonListener : MonoBehaviour
                 curPunching = 0;
                 Array.Clear(curCombo, 0, curCombo.Length);
                 score++;
-                ModelController.MC.instantiateModel(7);
+                //ModelController.MC.instantiateModel(7);
                 text.text = "Score: " + score.ToString();
                 textBox.GetComponent<PatternController>().generatingCombo();
             }
