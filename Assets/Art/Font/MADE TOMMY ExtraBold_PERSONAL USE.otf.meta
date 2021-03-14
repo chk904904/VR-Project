@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 362d14c47da5a4f4bb2f59edf9525cd6
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: MADE TOMMY
+  fontNames:
+  - MADE TOMMY
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 914882e942b1521488732d30defba6ea, type: 3}
+  - {fileID: 12800000, guid: 21e107aa0f4713e4582534b9a2af247c, type: 3}
+  - {fileID: 12800000, guid: 23c35abaf6bd02741893a701cce1068b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
