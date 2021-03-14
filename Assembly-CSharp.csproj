@@ -242,6 +242,7 @@
     <Compile Include="Assets\Quantum Tek\Quantum UI\Scripts\QUI_TabGroup.cs" />
     <Compile Include="Assets\Quantum Tek\Quantum UI\Scripts\QUI_TabWindow.cs" />
     <Compile Include="Assets\Quantum Tek\Quantum UI\Scripts\QUI_Window.cs" />
+    <Compile Include="Assets\ScoreCounter.cs" />
     <Compile Include="Assets\audioController.cs" />
     <Compile Include="Assets\headPosTracker.cs" />
     <Compile Include="Assets\timer.cs" />

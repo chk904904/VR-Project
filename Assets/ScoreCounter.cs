@@ -18,35 +18,31 @@ public class ScoreCounter : MonoBehaviour
     private int punchingNumber;
     private int curPunching = 0;
     private int curCombo = 0;
-    private int _score = 0;
-    private System.Random rd = new System.Random();
     private int[][] combos = {
-        new int[]{1,1},
-        new int[]{1,1,2},
-        new int[]{1,2},
-        new int[]{1,2,1},
-        new int[]{1,2,1,2},
-        new int[]{1,2,3,2},
-        new int[]{1,6,3,2}
+        new int[]{1,2,3},
+        new int[]{1,2,3,3},
+        new int[]{1,4,1},
+        new int[]{1,4,4,1},
+        new int[]{2,1,4},
+        new int[]{2,1,4,4}
     };
     private string[] comboStrings = { " ", "Jab", "Cross", "Left Hook", "Right Hook", "Left Uppercut", "Right Uppercut"};
+    private string[] instructions = { 
+        "Repeat! 1 - 2 - 3",
+        "Next! 1 - 2 - 3 - 3",
+        "Repeat! 1 - 4 - 1",
+        "Next! 1 - 4 - 4 - 1",
+        "Repeat! 2 - 1 -4",
+        "What's the next combo?"
+    };
 
 
     // Start is called before the first frame update
     void Start()
     {
-
-        curCombo = rd.Next(0, combos.Length);
-        punchingBag.GetComponent<Renderer>().material = bagMaterials[combos[curCombo][0]];
-        string temp = "";
-        for(int i = 0; i < combos[curCombo].Length - 1; i++)
-        {
-            temp += comboStrings[combos[curCombo][i]] + " -> ";
-        }
-        temp += comboStrings[combos[curCombo][combos[curCombo].Length - 1]];
-        comboName.text = temp;
+        punchingBag.GetComponent<Renderer>().material = bagMaterials[combos[curCombo][curPunching]];
+        comboName.text = instructions[curCombo];
         GetComponent<ButtonController>().InteractableStateChanged.AddListener(InitiateEvent);
-        score.text = "Score: 0";
     }
 
     void InitiateEvent(InteractableStateArgs state)
@@ -139,45 +135,32 @@ public class ScoreCounter : MonoBehaviour
         punchingNumber = punchingDetect(state);
         float x = System.Math.Abs(state.Tool.InteractionPosition.x);
         float y = System.Math.Abs(state.Tool.InteractionPosition.y);
-        if (combos[curCombo][curPunching] == numberDetect(x, y))
+        if(curCombo < combos.Length)
         {
-            punchingBag.GetComponent<Renderer>().material = bagMaterials[7];
-            curPunching++;
-        }
-        else
-        {
-            punchingBag.GetComponent<Renderer>().material = bagMaterials[8];
-        }
-        if (curPunching == combos[curCombo].Length)
-        {
-            curPunching = 0;
-            curCombo = rd.Next(0, combos.Length);
-            string temp = "";
-            for (int i = 0; i < combos[curCombo].Length - 1; i++)
+            if (combos[curCombo][curPunching] == numberDetect(x, y))
             {
-                temp += comboStrings[combos[curCombo][i]] + " -> ";
+                punchingBag.GetComponent<Renderer>().material = bagMaterials[7];
+                curPunching++;
             }
-            temp += comboStrings[combos[curCombo][combos[curCombo].Length - 1]];
-            comboName.text = temp;
-            _score++;
-            score.text = "Score: " + _score;
-        } else
-        {
-            string temp = "";
-            if(curPunching < combos[curCombo].Length - 1)
+            else
             {
-                for (int i = curPunching; i < combos[curCombo].Length - 1; i++)
+                punchingBag.GetComponent<Renderer>().material = bagMaterials[8];
+            }
+            if (curPunching == combos[curCombo].Length)
+            {
+                curPunching = 0;
+                curCombo++;
+                if (curCombo < combos.Length)
                 {
-                    temp += comboStrings[combos[curCombo][i]] + " -> ";
+                    comboName.text = instructions[curCombo];
                 }
-                temp += comboStrings[combos[curCombo][combos[curCombo].Length - 1]];
-                comboName.text = temp;
-            } else
-            {
-                comboName.text = comboStrings[combos[curCombo][combos[curCombo].Length - 1]];
+                else
+                {
+                    comboName.text = "Nice Job!";
+                }
             }
-            
         }
+        
         
         switch (punchingNumber)
         {
@@ -185,43 +168,43 @@ public class ScoreCounter : MonoBehaviour
                 anim.SetBool("jab", true);
                 yield return new WaitForSeconds(0.2f);
                 anim.SetBool("jab", false);
-                punchingBag.GetComponent<Renderer>().material = bagMaterials[combos[curCombo][curPunching]];
                 break;
             case 2:
                 anim.SetBool("cross", true);
                 yield return new WaitForSeconds(0.2f);
                 anim.SetBool("cross", false);
-                punchingBag.GetComponent<Renderer>().material = bagMaterials[combos[curCombo][curPunching]];
                 break;
             case 3:
                 anim.SetBool("hook", true);
                 yield return new WaitForSeconds(0.2f);
                 anim.SetBool("hook", false);
-                punchingBag.GetComponent<Renderer>().material = bagMaterials[combos[curCombo][curPunching]];
                 break;
             case 4:
                 anim.SetBool("hook", true);
                 yield return new WaitForSeconds(0.2f);
                 anim.SetBool("hook", false);
-                punchingBag.GetComponent<Renderer>().material = bagMaterials[combos[curCombo][curPunching]];
                 break;
             case 5:
                 anim.SetBool("uppercut", true);
                 yield return new WaitForSeconds(0.2f);
                 anim.SetBool("uppercut", false);
-                punchingBag.GetComponent<Renderer>().material = bagMaterials[combos[curCombo][curPunching]];
                 break;
             case 6:
                 anim.SetBool("uppercut", true);
                 yield return new WaitForSeconds(0.2f);
                 anim.SetBool("uppercut", false);
-                punchingBag.GetComponent<Renderer>().material = bagMaterials[combos[curCombo][curPunching]];
                 break;
             default:
                 break;
-
         }
-
+        if (curCombo < combos.Length - 1)
+        {
+            punchingBag.GetComponent<Renderer>().material = bagMaterials[combos[curCombo][curPunching]];
+        } else
+        {
+            punchingBag.GetComponent<Renderer>().material = bagMaterials[0];
+        }
+        
     }
 
 }
