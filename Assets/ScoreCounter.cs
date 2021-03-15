@@ -14,10 +14,12 @@ public class ScoreCounter : MonoBehaviour
     public Animator anim;
     public Material[] bagMaterials = new Material[9];
     public GameObject punchingBag;
+    public AudioClip[] audios = new AudioClip[4];
 
     private int punchingNumber;
     private int curPunching = 0;
     private int curCombo = 0;
+    private AudioSource ac;
     private int[][] combos = {
         new int[]{1,2,3},
         new int[]{1,2,3,3},
@@ -26,7 +28,6 @@ public class ScoreCounter : MonoBehaviour
         new int[]{2,1,4},
         new int[]{2,1,4,4}
     };
-    private string[] comboStrings = { " ", "Jab", "Cross", "Left Hook", "Right Hook", "Left Uppercut", "Right Uppercut"};
     private string[] instructions = { 
         "Repeat! 1 - 2 - 3",
         "Next! 1 - 2 - 3 - 3",
@@ -43,6 +44,7 @@ public class ScoreCounter : MonoBehaviour
         punchingBag.GetComponent<Renderer>().material = bagMaterials[combos[curCombo][curPunching]];
         comboName.text = instructions[curCombo];
         GetComponent<ButtonController>().InteractableStateChanged.AddListener(InitiateEvent);
+        ac = this.GetComponentInChildren<AudioSource>();
     }
 
     void InitiateEvent(InteractableStateArgs state)
@@ -141,10 +143,13 @@ public class ScoreCounter : MonoBehaviour
             {
                 punchingBag.GetComponent<Renderer>().material = bagMaterials[7];
                 curPunching++;
+                comboName.text = instructions[curCombo];
             }
             else
             {
+                curPunching = 0;
                 punchingBag.GetComponent<Renderer>().material = bagMaterials[8];
+                comboName.text = "Wrong Punch!" + Environment.NewLine + "Restart combo!";
             }
             if (curPunching == combos[curCombo].Length)
             {
@@ -166,31 +171,37 @@ public class ScoreCounter : MonoBehaviour
         {
             case 1:
                 anim.SetBool("jab", true);
+                ac.PlayOneShot(audios[0], 1.0f);
                 yield return new WaitForSeconds(0.2f);
                 anim.SetBool("jab", false);
                 break;
             case 2:
                 anim.SetBool("cross", true);
+                ac.PlayOneShot(audios[0], 1.0f);
                 yield return new WaitForSeconds(0.2f);
                 anim.SetBool("cross", false);
                 break;
             case 3:
                 anim.SetBool("hook", true);
+                ac.PlayOneShot(audios[1], 1.0f);
                 yield return new WaitForSeconds(0.2f);
                 anim.SetBool("hook", false);
                 break;
             case 4:
                 anim.SetBool("hook", true);
+                ac.PlayOneShot(audios[2], 1.0f);
                 yield return new WaitForSeconds(0.2f);
                 anim.SetBool("hook", false);
                 break;
             case 5:
                 anim.SetBool("uppercut", true);
+                ac.PlayOneShot(audios[3], 1.0f);
                 yield return new WaitForSeconds(0.2f);
                 anim.SetBool("uppercut", false);
                 break;
             case 6:
                 anim.SetBool("uppercut", true);
+                ac.PlayOneShot(audios[3], 1.0f);
                 yield return new WaitForSeconds(0.2f);
                 anim.SetBool("uppercut", false);
                 break;
