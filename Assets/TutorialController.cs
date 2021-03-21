@@ -29,7 +29,12 @@ public class TutorialController : MonoBehaviour
         changeToHandsUp = false; 
         initLeftPos = leftHand.transform.position; 
         initRightPos = rightHand.transform.position;
-        while(ctr < 4){
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(ctr < 4){
             if(ctr == 0){
             }
             else if(ctr == 1){
@@ -41,7 +46,6 @@ public class TutorialController : MonoBehaviour
             else{
                 anim.SetBool("isStart", true);
                 ctr = 4;
-                break;
             }
 
             if(ctr == 0){
@@ -61,11 +65,6 @@ public class TutorialController : MonoBehaviour
                 ctr = 3;
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
 
