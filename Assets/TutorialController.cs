@@ -61,12 +61,16 @@ public class TutorialController : MonoBehaviour
                 }
             }
             else if(ctr == 2){
-                StartCoroutine(waitToStart());
+                switchToStart();
                 ctr = 3;
             }
         }
     }
 
+    
+    void switchToStart(){
+        StartCoroutine(waitToStart());
+    }
 
     void tutorialHandsUp(){
         initLeftPos = leftHand.transform.position; 
