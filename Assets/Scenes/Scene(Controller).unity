@@ -284,6 +284,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PunchingBag
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ade0fed6fe07ad94984d438f8e7d1544,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: ade0fed6fe07ad94984d438f8e7d1544,
         type: 3}
       propertyPath: m_Avatar
@@ -522,7 +527,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 25
   field of view: 60
   orthographic: 0
@@ -2846,7 +2851,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148899298716}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4965508561448874142}
@@ -2980,7 +2985,7 @@ MonoBehaviour:
   text: {fileID: 510863893}
   speed: 0
   velocity: {x: 0, y: 0, z: 0}
-  root: {fileID: 444121424}
+  root: {fileID: 444121430}
 --- !u!4 &934889434729205522
 Transform:
   m_ObjectHideFlags: 0
@@ -4250,7 +4255,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7766081547468639904}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 5485388562613090184}
@@ -4415,7 +4420,7 @@ MonoBehaviour:
   text: {fileID: 510863893}
   speed: 0
   velocity: {x: 0, y: 0, z: 0}
-  root: {fileID: 444121424}
+  root: {fileID: 444121430}
 --- !u!4 &7795096376818347868
 Transform:
   m_ObjectHideFlags: 0

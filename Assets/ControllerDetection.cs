@@ -15,7 +15,7 @@ public class ControllerDetection : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GloveFollowing GF = other.gameObject.GetComponent<GloveFollowing>();
-        text.text = other.gameObject.name+GF.velocity;
+        //text.text = other.gameObject.name+GF.velocity;
     }
     void OnCollisionEnter(Collision collision)
     {
