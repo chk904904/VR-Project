@@ -74,12 +74,16 @@ public class TutorialController : MonoBehaviour
                 startSample = true;
                 if(checkHandsUp()){
                     ctr = 2;
+		    initLeftPos = finalLeftPos; 
+                    initRightPos = finalRightPos;
                 }
             }
             else if(ctr == 2){
                 startSample = true;
                 if(checkHandsUp()){
                     ctr = 3;
+		    initLeftPos = finalLeftPos; 
+                    initRightPos = finalRightPos;
                 }
             }
         }
