@@ -8,6 +8,7 @@ using System;
 
 public class TutorialController : MonoBehaviour
 {
+    public Text displayer;
     public GameObject leftHand; 
     public GameObject rightHand; 
 	private int ctr = 0;
@@ -29,10 +30,15 @@ public class TutorialController : MonoBehaviour
         changeToHandsUp = false; 
         initLeftPos = leftHand.transform.position; 
         initRightPos = rightHand.transform.position;
-        while (ctr < 4)
-        {
-            if (ctr == 0)
-            {
+
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        displayer.text = initRightPos.ToString();
+        if (ctr < 4){
+            if(ctr == 0){
             }
             else if (ctr == 1)
             {
@@ -46,7 +52,6 @@ public class TutorialController : MonoBehaviour
             {
                 anim.SetBool("isStart", true);
                 ctr = 4;
-                break;
             }
 
             if (ctr == 0)
@@ -73,30 +78,28 @@ public class TutorialController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
 
     void tutorialHandsUp(){
-        initLeftPos = leftHand.transform.position; 
+        initLeftPos = leftHand.transform.position;
         initRightPos = rightHand.transform.position;
         StartCoroutine(handsUpChecking());
-        if((finalLeftPos.y > initLeftPos.y)&&(finalRightPos.y > initRightPos.y)){
+        if ((finalLeftPos.y > initLeftPos.y + 0.3f) && (finalRightPos.y > initRightPos.y + 0.3f))
+        {
             changeToHandsUp = true;
         }
-        else{
-            changeToHandsUp =  false;
+        else
+        {
+            changeToHandsUp = false;
         }
     }
 
-    IEnumerator handsUpChecking(){
+    IEnumerator handsUpChecking()
+    {
         yield return new WaitForSeconds(1.5f);
-        finalLeftPos = leftHand.transform.position; 
+        finalLeftPos = leftHand.transform.position;
         finalRightPos = rightHand.transform.position;
     }
+
 
     IEnumerator waitToStart(){
         yield return new WaitForSeconds(2.5f);
