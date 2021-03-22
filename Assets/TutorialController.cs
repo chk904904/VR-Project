@@ -18,9 +18,15 @@ public class TutorialController : MonoBehaviour
     private bool changeToHandsUp; 
     private bool changeToChinDown;
 	Animator anim;
+
+
+    private int frameCtr = 0; 
+    private int frameNum = 41;
+    private bool startSample;
     // Start is called before the first frame update
     void Start()
     {
+        startSample = false; 
         anim = GetComponent<Animator>();
         anim.SetBool("isHandsUp",false);
         anim.SetBool("istart", false);
@@ -33,7 +39,21 @@ public class TutorialController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    {   
+        if(startSample){
+            if(frameCtr == 0){
+                initLeftPos = leftHand.transform.position; 
+                initRightPos = rightHand.transform.position;
+            }
+            frameCtr ++;
+            if(frameCtr == frameNum){
+                finalLeftPos = leftHand.transform.position; 
+                finalRightPos = rightHand.transform.position;
+                startSample = false;
+                frameCtr = 0;
+            }
+        }
+
         if(ctr < 4){
             if(ctr == 0){
             }
@@ -49,49 +69,29 @@ public class TutorialController : MonoBehaviour
             }
 
             if(ctr == 0){
-                tutorialHandsUp();
-                if(changeToHandsUp){
-                    ctr = 1;
-                }
             }
             else if(ctr == 1 ){
-                tutorialHandsUp();
-                if(changeToHandsUp){
+                startSample = true;
+                if(checkHandsUp()){
                     ctr = 2;
                 }
             }
             else if(ctr == 2){
-                switchToStart();
-                ctr = 3;
+                startSample = true;
+                if(checkHandsUp()){
+                    ctr = 3;
+                }
             }
         }
     }
 
-    
-    void switchToStart(){
-        StartCoroutine(waitToStart());
-    }
-
-    void tutorialHandsUp(){
-        initLeftPos = leftHand.transform.position; 
-        initRightPos = rightHand.transform.position;
-        StartCoroutine(handsUpChecking());
-        if((finalLeftPos.y > initLeftPos.y)&&(finalRightPos.y > initRightPos.y)){
-            changeToHandsUp = true;
+    bool checkHandsUp(){
+        if((finalLeftPos.y - initLeftPos.y >= 2)&&(finalRightPos.y - initRightPos.y >= 2)){
+            return true;
         }
         else{
-            changeToHandsUp =  false;
+            return  false;
         }
-    }
-
-    IEnumerator handsUpChecking(){
-        yield return new WaitForSeconds(1.5f);
-        finalLeftPos = leftHand.transform.position; 
-        finalRightPos = rightHand.transform.position;
-    }
-
-    IEnumerator waitToStart(){
-        yield return new WaitForSeconds(2.5f);
     }
 
 }
