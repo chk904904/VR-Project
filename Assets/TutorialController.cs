@@ -71,6 +71,7 @@ public class TutorialController : MonoBehaviour
             else if (ctr == 1)
             {
                 text.text = "1";
+                transform.rotation = Quaternion.Euler(0, 90f, 0);
                 //transform.rotation = Quaternion.Euler(0,90f,0);
                 //anim.SetBool("isChinDown", true);
             }
@@ -78,11 +79,13 @@ public class TutorialController : MonoBehaviour
             {
                 text.text = "2";
                 transform.rotation = Quaternion.Euler(0, 180f, 0);
+                //transform.rotation = Quaternion.Euler(0, 180f, 0);
                 //anim.SetBool("isHandsUp", true);
             }
             else
             {
                 text.text = "4";
+                //transform.rotation = Quaternion.Euler(0, 270f, 0);
                 transform.rotation = Quaternion.Euler(0, 270f, 0);
                 //anim.SetBool("isStart", true);
                 ctr = 4;
