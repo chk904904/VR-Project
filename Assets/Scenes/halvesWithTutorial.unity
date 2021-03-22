@@ -378,7 +378,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.1
   far clip plane: 25
   field of view: 60
   orthographic: 0
@@ -1007,22 +1007,22 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ee484eb229a972d439facd54cc6f5be5,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99789804
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ee484eb229a972d439facd54cc6f5be5,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ee484eb229a972d439facd54cc6f5be5,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.06480403
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ee484eb229a972d439facd54cc6f5be5,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ee484eb229a972d439facd54cc6f5be5,
         type: 3}
@@ -1032,7 +1032,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ee484eb229a972d439facd54cc6f5be5,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 7.431
+      value: -90
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ee484eb229a972d439facd54cc6f5be5,
         type: 3}
@@ -1064,7 +1064,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d8cb5af3328346bcb07663887dae539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayer: {fileID: 1260883184}
+  text: {fileID: 1260883184}
   leftHand: {fileID: 7766081547468639904}
   rightHand: {fileID: 2802938300446183911}
 --- !u!95 &626933652

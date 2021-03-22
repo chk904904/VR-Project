@@ -8,101 +8,123 @@ using System;
 
 public class TutorialController : MonoBehaviour
 {
-    public Text displayer;
-    public GameObject leftHand; 
-    public GameObject rightHand; 
-	private int ctr = 0;
+    public Text text;
+    public Text combo;
+    public GameObject leftHand;
+    public GameObject rightHand;
+    private int ctr = 0;
     private Vector3 initLeftPos;
     private Vector3 initRightPos;
     private Vector3 finalLeftPos;
     private Vector3 finalRightPos;
-    private bool changeToHandsUp; 
+    private bool changeToHandsUp;
     private bool changeToChinDown;
-	Animator anim;
+    Animator anim;
+
+
+    private int frameCtr = 0;
+    private int frameNum = 41;
+    private bool startSample;
     // Start is called before the first frame update
     void Start()
     {
+        startSample = false;
         anim = GetComponent<Animator>();
-        anim.SetBool("isHandsUp",false);
+        anim.SetBool("isHandsUp", false);
         anim.SetBool("istart", false);
-        anim.SetBool("isChinDown",false);
-        changeToChinDown = false; 
-        changeToHandsUp = false; 
-        initLeftPos = leftHand.transform.position; 
+        anim.SetBool("isChinDown", false);
+        changeToChinDown = false;
+        changeToHandsUp = false;
+        initLeftPos = leftHand.transform.position;
         initRightPos = rightHand.transform.position;
-
+        transform.Rotate(0, 180, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        displayer.text = initRightPos.ToString();
-        if (ctr < 4){
-            if(ctr == 0){
+        
+        combo.text = finalRightPos.y.ToString() + " " + initRightPos.y.ToString();
+        if (startSample)
+        {
+            if (frameCtr == 0)
+            {
+                initLeftPos = leftHand.transform.position;
+                initRightPos = rightHand.transform.position;
+            }
+            frameCtr++;
+            if (frameCtr == frameNum)
+            {
+                finalLeftPos = leftHand.transform.position;
+                finalRightPos = rightHand.transform.position;
+                startSample = false;
+                frameCtr = 0;
+            }
+        }
+
+        if (ctr < 4)
+        {
+            if (ctr == 0)
+            {
+                text.text = "0";
             }
             else if (ctr == 1)
             {
-                anim.SetBool("isChinDown", true);
+                text.text = "1";
+                //transform.rotation = Quaternion.Euler(0,90f,0);
+                //anim.SetBool("isChinDown", true);
             }
             else if (ctr == 2)
             {
-                anim.SetBool("isHandsUp", true);
+                text.text = "2";
+                transform.rotation = Quaternion.Euler(0, 180f, 0);
+                //anim.SetBool("isHandsUp", true);
             }
             else
             {
-                anim.SetBool("isStart", true);
+                text.text = "4";
+                transform.rotation = Quaternion.Euler(0, 270f, 0);
+                //anim.SetBool("isStart", true);
                 ctr = 4;
             }
 
             if (ctr == 0)
             {
-                tutorialHandsUp();
-                if (changeToHandsUp)
-                {
-                    ctr = 1;
-                }
+                ctr = 1;
             }
             else if (ctr == 1)
             {
-                tutorialHandsUp();
-                if (changeToHandsUp)
+                startSample = true;
+                if (checkHandsUp())
                 {
                     ctr = 2;
+                    initLeftPos = finalLeftPos;
+                    initRightPos = finalRightPos;
                 }
             }
             else if (ctr == 2)
             {
-                StartCoroutine(waitToStart());
-                ctr = 3;
+                startSample = true;
+                if (checkHandsUp())
+                {
+                    ctr = 3;
+                    initLeftPos = finalLeftPos;
+                    initRightPos = finalRightPos;
+                }
             }
         }
     }
 
-
-    void tutorialHandsUp(){
-        initLeftPos = leftHand.transform.position;
-        initRightPos = rightHand.transform.position;
-        StartCoroutine(handsUpChecking());
-        if ((finalLeftPos.y > initLeftPos.y + 0.3f) && (finalRightPos.y > initRightPos.y + 0.3f))
+    bool checkHandsUp()
+    {
+        if ((finalLeftPos.y - initLeftPos.y >= 0.5f) && (finalRightPos.y - initRightPos.y >= 0.5f))
         {
-            changeToHandsUp = true;
+            return true;
         }
         else
         {
-            changeToHandsUp = false;
+            return false;
         }
-    }
-
-    IEnumerator handsUpChecking()
-    {
-        yield return new WaitForSeconds(1.5f);
-        finalLeftPos = leftHand.transform.position;
-        finalRightPos = rightHand.transform.position;
-    }
-
-
-    IEnumerator waitToStart(){
-        yield return new WaitForSeconds(2.5f);
     }
 
 }
