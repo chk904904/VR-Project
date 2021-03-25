@@ -12,23 +12,29 @@ public class TutorialController : MonoBehaviour
     public Text combo;
     public GameObject leftHand;
     public GameObject rightHand;
+    public GameObject head;
     private int ctr = 0;
     private Vector3 initLeftPos;
     private Vector3 initRightPos;
     private Vector3 finalLeftPos;
     private Vector3 finalRightPos;
+    private Vector3 initChin; 
+    private Vector3 finalChin;
     private bool changeToHandsUp;
     private bool changeToChinDown;
+    private bool startChinSample;
     Animator anim;
 
 
     private int frameCtr = 0;
+    private int frameChinCtr = 0;
     private int frameNum = 41;
     private bool startSample;
     // Start is called before the first frame update
     void Start()
     {
         startSample = false;
+        startChinSample = false;
         anim = GetComponent<Animator>();
         anim.SetBool("isHandsUp", false);
         anim.SetBool("istart", false);
@@ -59,6 +65,21 @@ public class TutorialController : MonoBehaviour
                 finalRightPos = rightHand.transform.position;
                 startSample = false;
                 frameCtr = 0;
+            }
+        }
+
+        if (startChinSample)
+        {
+            if (frameChinCtr == 0)
+            {
+                initChin = head.transform.position;
+            }
+            frameCtr++;
+            if (frameChinCtr == frameNum)
+            {
+                finalChin = head.transform.position;
+                startChinSample = false;
+                frameChinCtr = 0;
             }
         }
 
@@ -98,11 +119,10 @@ public class TutorialController : MonoBehaviour
             else if (ctr == 1)
             {
                 startSample = true;
-                if (checkHandsUp())
+                if (checkChinDown())
                 {
                     ctr = 2;
-                    initLeftPos = finalLeftPos;
-                    initRightPos = finalRightPos;
+                    initChin = finalChin;
                 }
             }
             else if (ctr == 2)
@@ -125,7 +145,19 @@ public class TutorialController : MonoBehaviour
             return true;
         }
         else
+
         {
+            return false;
+        }
+    }
+
+    bool checkChinDown()
+    {
+        if (finalChin.y - initChin.y >= 0.5f)
+        {
+            return true;
+        }
+        else{
             return false;
         }
     }

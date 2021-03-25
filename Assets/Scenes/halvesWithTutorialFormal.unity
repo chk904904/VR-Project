@@ -1068,6 +1068,7 @@ MonoBehaviour:
   combo: {fileID: 0}
   leftHand: {fileID: 7766081547468639904}
   rightHand: {fileID: 2802938300446183911}
+  head: {fileID: 444554614}
 --- !u!1 &749357661
 GameObject:
   m_ObjectHideFlags: 0
