@@ -1065,7 +1065,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1260883184}
-  combo: {fileID: 0}
+  combo: {fileID: 510863893}
   leftHand: {fileID: 7766081547468639904}
   rightHand: {fileID: 2802938300446183911}
   head: {fileID: 444554614}
