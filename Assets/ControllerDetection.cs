@@ -89,7 +89,7 @@ public class ControllerDetection : MonoBehaviour
         punch.text = "";
         ac = this.GetComponentInChildren<AudioSource>();
         anim = this.GetComponent<Animator>();
-        StartCoroutine(PlayVideo(5f, 1));
+        StartCoroutine(PlayVideo(12f, 1));
 
     }
     private void OnTriggerEnter(Collider other)
@@ -163,14 +163,14 @@ public class ControllerDetection : MonoBehaviour
                         punch.text = "";
                         comboName.text = "";
                         StartCoroutine(BagBouncing(tutorialIndex, true, 0));
-                        StartCoroutine(PlayVideo(5.0f, tutorialIndex + 1));
+                        StartCoroutine(PlayVideo(12f, tutorialIndex + 1));
                         break;
                     case 4:
                         ac.PlayOneShot(audios[6], audios[6].length);
                         punch.text = "";
                         comboName.text = "";
                         StartCoroutine(BagBouncing(tutorialIndex, true, 0));
-                        StartCoroutine(PlayVideo(5.0f, tutorialIndex + 1));
+                        StartCoroutine(PlayVideo(12f, tutorialIndex + 1));
                         break;
                     case 6:
                         ac.PlayOneShot(audios[5], audios[5].length);

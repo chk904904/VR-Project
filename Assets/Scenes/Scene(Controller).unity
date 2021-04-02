@@ -179,7 +179,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10005568}
   m_LocalRotation: {x: 0, y: -0.26874337, z: 0, w: 0.96321183}
-  m_LocalPosition: {x: 0, y: 0, z: 20.18}
+  m_LocalPosition: {x: 0, y: 0, z: 21.93}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 1982691996}
@@ -187,7 +187,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -31.179, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.59, y: 29.53}
+  m_AnchoredPosition: {x: 12.43, y: 28.48}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &10005570
@@ -464,7 +464,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ade0fed6fe07ad94984d438f8e7d1544,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: ade0fed6fe07ad94984d438f8e7d1544,
         type: 3}
@@ -1337,7 +1337,7 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449087717}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: bb9ceb1afda4faf46a45ba9e4912a841, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 9ddd77403261e994e9450072a45d61fb, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 442617484}
@@ -1802,7 +1802,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ee484eb229a972d439facd54cc6f5be5,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee484eb229a972d439facd54cc6f5be5, type: 3}
@@ -2546,7 +2546,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -31.179, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.59, y: 28.87}
+  m_AnchoredPosition: {x: 9.59, y: 29.02}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1260883184
