@@ -170,7 +170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &10005569
 RectTransform:
   m_ObjectHideFlags: 0
@@ -179,7 +179,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 10005568}
   m_LocalRotation: {x: 0, y: -0.26874337, z: 0, w: 0.96321183}
-  m_LocalPosition: {x: 0, y: 0, z: 21.304}
+  m_LocalPosition: {x: 0, y: 0, z: 20.18}
   m_LocalScale: {x: 0.1, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 1982691996}
@@ -187,7 +187,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -31.179, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.487, y: 28.582}
+  m_AnchoredPosition: {x: 9.59, y: 29.53}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &10005570
@@ -218,7 +218,7 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 1
     m_AlignByGeometry: 0
-    m_RichText: 0
+    m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 0
@@ -464,7 +464,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: ade0fed6fe07ad94984d438f8e7d1544,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: ade0fed6fe07ad94984d438f8e7d1544,
         type: 3}
@@ -1063,7 +1063,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 444554608}
   m_LocalRotation: {x: -0.0031534503, y: 0.9976941, z: -0.036589514, w: 0.057077877}
-  m_LocalPosition: {x: 0.225, y: 1.12, z: 0.961}
+  m_LocalPosition: {x: 0.225, y: 1.311, z: 0.961}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 444192786}
@@ -1547,7 +1547,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &510863892
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1564,8 +1564,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -31.179, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.59, y: 28.58}
-  m_SizeDelta: {x: 100, y: 30}
+  m_AnchoredPosition: {x: 9.507004, y: 28.58}
+  m_SizeDelta: {x: 98.070755, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &510863893
 MonoBehaviour:
@@ -1595,11 +1595,12 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 1
     m_AlignByGeometry: 0
-    m_RichText: 0
+    m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
-    m_LineSpacing: 0
-  m_Text: combo
+    m_LineSpacing: 0.5
+  m_Text: <size=6><color=#777777>1 - </color></size><size=9><color=#FFC166>2</color></size><size=6><color=#777777>
+    - 1</color></size>
 --- !u!222 &510863894
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2528,7 +2529,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1260883183
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2545,7 +2546,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -31.179, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9.59, y: 29.04}
+  m_AnchoredPosition: {x: 9.59, y: 28.87}
   m_SizeDelta: {x: 100, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1260883184
@@ -2576,7 +2577,7 @@ MonoBehaviour:
     m_MaxSize: 40
     m_Alignment: 1
     m_AlignByGeometry: 0
-    m_RichText: 0
+    m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 0
@@ -4158,7 +4159,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6318150bbbd43b34dab6241d0d73af24, type: 2}
+  - {fileID: 2100000, guid: a7abe02e376c1304790f5f9fa55a9fc0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5378,7 +5379,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6318150bbbd43b34dab6241d0d73af24, type: 2}
+  - {fileID: 2100000, guid: 6ed8fd9e0214df14c868ee0ee6609dab, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

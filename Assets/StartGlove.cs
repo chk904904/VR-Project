@@ -15,7 +15,7 @@ public class StartGlove : MonoBehaviour
     private AudioSource ac;
     private void Start()
     {
-        ac = GetComponent<AudioSource>();
+        ac = this.GetComponentInChildren<AudioSource>();
         position = transform.position;
         rotation = transform.rotation;
     }
@@ -32,7 +32,7 @@ public class StartGlove : MonoBehaviour
             text.gameObject.SetActive(true);
             combo.gameObject.SetActive(true);
             punchbag.GetComponent<ControllerDetection>()._TriggerVibration(other.GetComponent<GloveFollowing>().m_controller);
-            ac.PlayOneShot(_audio, 2.0f);
+            ac.PlayOneShot(_audio, _audio.length);
             gameObject.SetActive(false);
         }
     }

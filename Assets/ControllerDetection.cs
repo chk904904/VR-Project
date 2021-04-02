@@ -89,7 +89,7 @@ public class ControllerDetection : MonoBehaviour
         punch.text = "";
         ac = this.GetComponentInChildren<AudioSource>();
         anim = this.GetComponent<Animator>();
-        StartCoroutine(PlayVideo(5f));
+        StartCoroutine(PlayVideo(5f, 1));
 
     }
     private void OnTriggerEnter(Collider other)
@@ -148,6 +148,8 @@ public class ControllerDetection : MonoBehaviour
     {
         if (isPlayingVideo)
         {
+            punch.text = "";
+            comboName.text = "";
             StartCoroutine(BagBouncing(punchingNumber, true, 0));
         }
         else
@@ -157,40 +159,39 @@ public class ControllerDetection : MonoBehaviour
                 switch (tutorialIndex)
                 {
                     case 2:
-                        ac.PlayOneShot(audios[4], 2.0f);
-                        punch.text = "Great!";
+                        ac.PlayOneShot(audios[4], audios[4].length);
+                        punch.text = "";
+                        comboName.text = "";
+                        StartCoroutine(BagBouncing(tutorialIndex, true, 0));
+                        StartCoroutine(PlayVideo(5.0f, tutorialIndex + 1));
                         break;
                     case 4:
-                        ac.PlayOneShot(audios[6], 2.0f);
-                        punch.text = "Awesome!";
+                        ac.PlayOneShot(audios[6], audios[6].length);
+                        punch.text = "";
+                        comboName.text = "";
+                        StartCoroutine(BagBouncing(tutorialIndex, true, 0));
+                        StartCoroutine(PlayVideo(5.0f, tutorialIndex + 1));
                         break;
                     case 6:
-                        ac.PlayOneShot(audios[5], 2.0f);
-                        punch.text = "Great!";
+                        ac.PlayOneShot(audios[5], audios[5].length);
+                        punch.text = "";
                         comboName.text = "Now Let's try Combos";
+                        StartCoroutine(BagBouncing(tutorialIndex, true, 0));
+                        StartCoroutine(startPractice());
+                        status = 0;
                         break;
+                    default:
+                        punch.text = punches[tutorialIndex + 1];
+                        comboName.text = (tutorialIndex + 1).ToString();
+                        StartCoroutine(BagBouncing(tutorialIndex, true, tutorialIndex + 1));
+                        break;
+
                 }
-                if(tutorialIndex == 6)
-                {
-                    StartCoroutine(BagBouncing(tutorialIndex, true, 0));
-                    StartCoroutine(startPractice());
-                    status = 0;
-                } else
-                {
-                    tutorialIndex++;
-                    if (tutorialIndex == 3 || tutorialIndex == 5)
-                    {
-                        StartCoroutine(BagBouncing(tutorialIndex - 1, true, 0));
-                        StartCoroutine(PlayVideo(5.0f));
-                    } else
-                    {
-                        StartCoroutine(BagBouncing(tutorialIndex - 1, true, tutorialIndex));
-                    }
-                    
-                }
-                
+                tutorialIndex++;
             } else
             {
+                punch.text = punches[tutorialIndex];
+                comboName.text = tutorialIndex.ToString();
                 StartCoroutine(BagBouncing(punchingNumber, false, tutorialIndex));
             }
         }
@@ -200,8 +201,7 @@ public class ControllerDetection : MonoBehaviour
     {
         yield return new WaitForSeconds(2.0f);
         status = 2;
-        comboName.text = instructions[0];
-        punch.text = "";
+        generateComboText(0, 0, combos, false);
         punchingBag.GetComponent<Renderer>().material = bagMaterials[combos[0][0]];
     }
     private void practicePunchDetection(int punchingNumber)
@@ -213,45 +213,23 @@ public class ControllerDetection : MonoBehaviour
             if (curPunching == combos[curCombo].Length)
             {
                 curPunching = 0;
-                switch (curCombo)
+                if (curCombo < 4)
                 {
-                    case 0:
-                        ac.PlayOneShot(audios[5], 2.0f);
-                        punch.text = "Great!";
-                        comboName.text = instructions[curCombo + 1];
-                        StartCoroutine(BagBouncing(punchingNumber, true, combos[curCombo + 1][0]));
-                        break;
-                    case 1:
-                        ac.PlayOneShot(audios[6], 2.0f);
-                        punch.text = "Awesome!";
-                        comboName.text = instructions[curCombo+1];
-                        StartCoroutine(BagBouncing(punchingNumber, true, combos[curCombo + 1][0]));
-                        break;
-                    case 2:
-                        ac.PlayOneShot(audios[4], 2.0f);
-                        punch.text = "Great!";
-                        comboName.text = instructions[curCombo + 1];
-                        StartCoroutine(BagBouncing(punchingNumber, true, combos[curCombo + 1][0]));
-                        break;
-                    case 3:
-                        ac.PlayOneShot(audios[6], 2.0f);
-                        punch.text = "Awesome!";
-                        comboName.text = instructions[curCombo + 1];
-                        StartCoroutine(BagBouncing(punchingNumber, true, combos[curCombo + 1][0]));
-                        break;
-                    case 4:
-                        ac.PlayOneShot(audios[7], 2.0f);
-                        punch.text = "";
-                        comboName.text = "What's the next combo?";
-                        StartCoroutine(BagBouncing(punchingNumber, true, 0));
-                        break;
-                    case 5:
-                        ac.PlayOneShot(audios[6], 2.0f);
-                        punch.text = "Awesome!";
-                        comboName.text = "";
-                        StartCoroutine(BagBouncing(punchingNumber, true, 0));
-                        StartCoroutine(startTest());
-                        break;
+                    ac.PlayOneShot(audios[5 + (curCombo % 2)], audios[5 + (curCombo % 2)].length);
+                    generateComboText(0, curCombo + 1, combos, false);
+                    StartCoroutine(BagBouncing(punchingNumber, true, combos[curCombo + 1][0]));
+                } else if( curCombo == 4)
+                {
+                    ac.PlayOneShot(audios[7], audios[7].length);
+                    generateComboText(0, curCombo + 1, combos, true);
+                    StartCoroutine(BagBouncing(punchingNumber, true, combos[curCombo + 1][0]));
+                } else
+                {
+                    ac.PlayOneShot(audios[6], audios[6].length);
+                    punch.text = "";
+                    comboName.text = "Awesome!";
+                    StartCoroutine(BagBouncing(punchingNumber, true, 0));
+                    StartCoroutine(startTest());
                 }
                 curCombo++;
             } 
@@ -259,29 +237,39 @@ public class ControllerDetection : MonoBehaviour
             {
                 if (curCombo != 5)
                 {
-                    punch.text = "";
+                    generateComboText(curPunching, curCombo, combos, false);
                     StartCoroutine(BagBouncing(punchingNumber, true, combos[curCombo][curPunching]));
                 } else
                 {
-                    punch.text = "";
+                    generateComboText(curPunching, curCombo, combos, true);
                     StartCoroutine(BagBouncing(punchingNumber, true, 0));
+                    if (getRepeatedIndex(curCombo, combos) != curPunching)
+                    {
+                        StartCoroutine(BagBouncing(punchingNumber, true, combos[curCombo][curPunching]));
+                    }
+                    else
+                    {
+                        StartCoroutine(BagBouncing(punchingNumber, true, 0));
+                    }
                 }
-                
             }
         }
         else
         {
             curPunching = 0;
-            punch.text = "Wrong Punch!";
             if (curCombo != 5)
             {
+                generateComboText(0, curCombo, combos, false);
                 StartCoroutine(BagBouncing(punchingNumber, false, combos[curCombo][curPunching]));
             }
             else
             {
+                generateComboText(0, curCombo, combos, true);
                 StartCoroutine(BagBouncing(punchingNumber, false, 0));
             }
-        }
+
+
+    }
 
     }
 
@@ -289,7 +277,7 @@ public class ControllerDetection : MonoBehaviour
     IEnumerator startTest()
     {
         yield return new WaitForSeconds(1.0f);
-        comboName.text = "Try to complete all the combos" + Environment.NewLine + " as fast as you can!";
+        comboName.text = "<size=4><color=#FFC166>Try to complete all the combos</color></size>" + Environment.NewLine + "<size=4><color=#FFC166>as fast as you can!</color></size>";
         punch.text = "";
         curCombo = 0;
         curPunching = 0;
@@ -302,8 +290,7 @@ public class ControllerDetection : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         status = 3;
         ac.PlayOneShot(audios[8], 2.0f);
-        punch.text = "Follow the Combo!";
-        comboName.text = "1 - 2 - 4";
+        generateComboText(0,0, testCombos, false);
         StartCoroutine(startTimer());
         punchingBag.GetComponent<Renderer>().material = bagMaterials[testCombos[0][0]];
     }
@@ -323,23 +310,12 @@ public class ControllerDetection : MonoBehaviour
                     {
                         case 0:
                             ac.PlayOneShot(audios[5], 2.0f);
-                            punch.text = "Great!";
-                            comboName.text = "What's next?";
-                            StartCoroutine(BagBouncing(punchingNumber, true, 0));
+                            generateComboText(0, curCombo + 1, testCombos, true);
+                            StartCoroutine(BagBouncing(punchingNumber, true, testCombos[curCombo + 1][0]));
                             break;
                         case 1:
                             ac.PlayOneShot(audios[6], 2.0f);
-                            punch.text = "Awesome!";
-                            sb.Clear();
-                            for (int i = 0; i < testCombos[curCombo + 1].Length; i++)
-                            {
-                                sb.Append(testCombos[curCombo + 1][i]);
-                                if ((i + 1) != testCombos[curCombo + 1].Length)
-                                {
-                                    sb.Append(" - ");
-                                }
-                            }
-                            comboName.text = sb.ToString();
+                            generateComboText(0, curCombo + 1, testCombos,false);
                             StartCoroutine(BagBouncing(punchingNumber, true, testCombos[curCombo + 1][0]));
                             break;
                     }
@@ -347,7 +323,7 @@ public class ControllerDetection : MonoBehaviour
                 } else
                 {
                     ac.PlayOneShot(audios[6], 2.0f);
-                    punch.text = "Awesome!";
+                    punch.text = "";
                     comboName.text = "";
                     StartCoroutine(BagBouncing(punchingNumber, true, 0));
                     StopCoroutine(startTimer());
@@ -360,13 +336,20 @@ public class ControllerDetection : MonoBehaviour
             {
                 if (curCombo % 2 == 0)
                 {
-                    punch.text = "";
+                    generateComboText(curPunching, curCombo, testCombos, false);
                     StartCoroutine(BagBouncing(punchingNumber, true, testCombos[curCombo][curPunching]));
                 }
                 else
                 {
-                    punch.text = "";
-                    StartCoroutine(BagBouncing(punchingNumber, true, 0));
+                    generateComboText(curPunching, curCombo, testCombos, true);
+                    if (getRepeatedIndex(curCombo, testCombos) != curPunching)
+                    {
+                        StartCoroutine(BagBouncing(punchingNumber, true, testCombos[curCombo][curPunching]));
+                    }
+                    else
+                    {
+                        StartCoroutine(BagBouncing(punchingNumber, true, 0));
+                    }
                 }
 
             }
@@ -374,27 +357,100 @@ public class ControllerDetection : MonoBehaviour
         else
         {
             curPunching = 0;
-            punch.text = "Wrong Punch!";
             if (curCombo % 2 == 0)
             {
+                generateComboText(0, curCombo, testCombos, false);
                 StartCoroutine(BagBouncing(punchingNumber, false, testCombos[curCombo][curPunching]));
             }
             else
             {
-                StartCoroutine(BagBouncing(punchingNumber, false, 0));
+                generateComboText(0, curCombo, testCombos, true);
+                StartCoroutine(BagBouncing(punchingNumber, false, testCombos[curCombo][curPunching]));
             }
         }
     }
 
+    private int getRepeatedIndex(int _curCombo, int[][] _combos)
+    {
+        for (int i = 1; i < _combos[_curCombo].Length; i++)
+        {
+            if ((_combos[_curCombo][i] == _combos[_curCombo][i - 1]) && ((_combos[_curCombo][i] == 3) || (_combos[_curCombo][i] == 4)))
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+    private void generateComboText(int hitNumber, int _curCombo, int[][] _combos, bool isRepeated)
+    {
+        int repeatedIndex = -1;
+        if (isRepeated)
+        {
+            repeatedIndex = getRepeatedIndex(_curCombo, _combos);
+        }
+        sb.Clear();
+        for (int i = 0; i < _combos[_curCombo].Length; i++)
+        {
+            if (i == hitNumber)
+            {
+                sb.Append("<size=9><color=#FFC166>");
+                if (i == repeatedIndex) {
+                    sb.Append("?");
+                } else {
+                    sb.Append(_combos[_curCombo][i]);
+                }
+                sb.Append("</color></size>");
+            }
+            else
+            {
+                sb.Append("<size=6><color=#777777>");
+                if (i == repeatedIndex)
+                {
+                    sb.Append("?");
+                }
+                else
+                {
+                    sb.Append(_combos[_curCombo][i]);
+                }
+                sb.Append("</color></size>");
+            }
+            if ((i + 1) != _combos[_curCombo].Length)
+            {
+                sb.Append("<size=6><color=#777777> - </color></size>");
+            }
+        }
+        if (_combos[_curCombo].Length - 2 * hitNumber - 1 < 0)
+        {
+            for(int i = 0; i < -(_combos[_curCombo].Length - 2 * hitNumber - 1); i++)
+            {
+                sb.Append("<size=6><color=#777777>     </color></size>");
+            }
+        }
+        if (_combos[_curCombo].Length - 2 * hitNumber - 1 > 0)
+        {
+            for (int i = 0; i < _combos[_curCombo].Length - 2 * hitNumber - 1; i++)
+            {
+                sb.Insert(0, "<size=6><color=#777777>     </color></size>");
+            }
+        }
+        if (isRepeated && (hitNumber == repeatedIndex))
+        {
+            punch.text = "What's next?";
+        } else
+        {
+            punch.text = punches[_combos[_curCombo][hitNumber]].ToString();
+        }
+        comboName.text = sb.ToString();
+        
+    }
 
-
-    IEnumerator PlayVideo(float duration)
+    IEnumerator PlayVideo(float duration, int _tutorialIndex)
     {
         isPlayingVideo = true;
         comboName.text = "";
         punch.text = "";
         videoScreen.SetActive(true);
-        switch (tutorialIndex)
+        switch (_tutorialIndex)
         {
             case 1:
                 jabvideoPlayer.SetActive(true);
@@ -406,9 +462,23 @@ public class ControllerDetection : MonoBehaviour
                 uppercutvideoPlayer.SetActive(true);
                 break;
         }
-        
+        switch (_tutorialIndex)
+        {
+            case 1:
+                punch.text = "";
+                comboName.text = "<size=6><color=#FFC166>1 is Jab</color></size>" + Environment.NewLine + "<size=6><color=#FFC166>2 is Cross</color></size>";
+                break;
+            case 3:
+                punch.text = "";
+                comboName.text = "<size=6><color=#FFC166>3 is Left Hook</color></size>" + Environment.NewLine + "<size=6><color=#FFC166>4 is Right Hook</color></size>";
+                break;
+            case 5:
+                punch.text = "";
+                comboName.text = "<size=6><color=#FFC166>5 is Left Uppercut</color></size>" + Environment.NewLine + "<size=6><color=#FFC166>6 is Right Uppercut</color></size>";
+                break;
+        }
         yield return new WaitForSeconds(duration);
-        switch (tutorialIndex)
+        switch (_tutorialIndex)
         {
             case 1:
                 jabvideoPlayer.SetActive(false);
@@ -422,21 +492,9 @@ public class ControllerDetection : MonoBehaviour
         }
         videoScreen.SetActive(false);
         isPlayingVideo = false;
-        switch (tutorialIndex )
-        {
-            case 1:
-                comboName.text = "1 is Jab(Left Straight) and 2 is Cross(Right Straight)";
-                punchingBag.GetComponent<Renderer>().material = bagMaterials[1];
-                break;
-            case 3:
-                comboName.text = "3 is Left Hook and 4 is Right Hook";
-                punchingBag.GetComponent<Renderer>().material = bagMaterials[3];
-                break;
-            case 5:
-                comboName.text = "5 is Left Uppercut and 6 is Right Uppercut";
-                punchingBag.GetComponent<Renderer>().material = bagMaterials[5];
-                break;
-        }
+        punch.text = punches[_tutorialIndex];
+        comboName.text = _tutorialIndex.ToString();
+        punchingBag.GetComponent<Renderer>().material = bagMaterials[_tutorialIndex];
     }
 
     private int PunchRecognition(Vector3 displacement, string name)
@@ -508,37 +566,37 @@ public class ControllerDetection : MonoBehaviour
         {
             case 1:
                 anim.SetBool("jab", true);
-                ac.PlayOneShot(audios[0], 1.0f);
+                ac.PlayOneShot(audios[0], audios[0].length);
                 yield return new WaitForSeconds(0.2f);
                 anim.SetBool("jab", false);
                 break;
             case 2:
                 anim.SetBool("cross", true);
-                ac.PlayOneShot(audios[0], 1.0f);
+                ac.PlayOneShot(audios[0], audios[0].length);
                 yield return new WaitForSeconds(0.2f);
                 anim.SetBool("cross", false);
                 break;
             case 3:
                 anim.SetBool("hook", true);
-                ac.PlayOneShot(audios[1], 1.0f);
+                ac.PlayOneShot(audios[1], audios[1].length);
                 yield return new WaitForSeconds(0.2f);
                 anim.SetBool("hook", false);
                 break;
             case 4:
                 anim.SetBool("hook", true);
-                ac.PlayOneShot(audios[2], 1.0f);
+                ac.PlayOneShot(audios[2], audios[2].length);
                 yield return new WaitForSeconds(0.2f);
                 anim.SetBool("hook", false);
                 break;
             case 5:
                 anim.SetBool("uppercut", true);
-                ac.PlayOneShot(audios[3], 1.0f);
+                ac.PlayOneShot(audios[3], audios[3].length);
                 yield return new WaitForSeconds(0.2f);
                 anim.SetBool("uppercut", false);
                 break;
             case 6:
                 anim.SetBool("uppercut", true);
-                ac.PlayOneShot(audios[3], 1.0f);
+                ac.PlayOneShot(audios[3], audios[3].length);
                 yield return new WaitForSeconds(0.2f);
                 anim.SetBool("uppercut", false);
                 break;

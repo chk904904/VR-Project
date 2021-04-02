@@ -5,6 +5,7 @@ using OculusSampleFramework;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using System;
+using System.Text;
 
 public class TutorialController : MonoBehaviour
 {
@@ -147,16 +148,16 @@ public class TutorialController : MonoBehaviour
     }
     IEnumerator great()
     {
-        ac.PlayOneShot(audios[0], 2f);
-        yield return new WaitForSeconds(3f);
+        ac.PlayOneShot(audios[0], audios[0].length);
+        yield return new WaitForSeconds(audios[0].length);
     }
 
     IEnumerator activateStartGlove()
     {
-        ac.PlayOneShot(audios[1], 1.5f);
-        yield return new WaitForSeconds(1.5f);
-        ac.PlayOneShot(audios[2], 10.0f);
-        yield return new WaitForSeconds(10.0f);
+        ac.PlayOneShot(audios[1], audios[1].length);
+        yield return new WaitForSeconds(audios[1].length);
+        ac.PlayOneShot(audios[2], audios[2].length);
+        yield return new WaitForSeconds(audios[2].length);
         startGlove.SetActive(true);
     }
 
