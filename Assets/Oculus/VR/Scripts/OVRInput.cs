@@ -1309,7 +1309,7 @@ public static class OVRInput
 		return activeControllerType;
 	}
 
-	private static void StartVibration(float amplitude, float duration, Node controllerNode)
+	public static void StartVibration(float amplitude, float duration, Node controllerNode)
 	{
 		int index = (controllerNode == Node.LeftHand) ? 0 : 1;
 		hapticInfos[index].hapticsDurationPlayed = 0.0f;
