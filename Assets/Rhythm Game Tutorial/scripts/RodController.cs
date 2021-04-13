@@ -36,8 +36,15 @@ public class RodController : MonoBehaviour
     	xr = -1; 
     	yr = -1;
     	Vector3 temp = new Vector3(0,2.7f,0);
-    	leftRod.transform.position.y = GameObject.Find("Head").transform.position.y + temp.y;
-    	rightRod.transform.position.y = GameObject.Find("Head").transform.position.y + temp.y;
+        float ori_y = GameObject.Find("Head").transform.position.y;
+        float ori_x = GameObject.Find("Head").transform.position.x;
+        float ori_z = GameObject.Find("Head").transform.position.z;
+        Vector3 left = new Vector3(ori_x + 0.22f, ori_y - 0.1f, ori_z - 0.6f);
+        Vector3 right = new Vector3(ori_x - 0.38f, ori_y - 0.1f, ori_z - 0.6f);
+        //Debug.Log(leftRod.transform.position);
+        //Debug.Log(rightRod.transform.position);
+    	leftRod.transform.position = left;
+    	rightRod.transform.position = right;
     }
 
     // Update is called once per frame
