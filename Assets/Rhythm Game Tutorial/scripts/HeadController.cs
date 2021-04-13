@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using OculusSampleFramework;
@@ -14,6 +14,7 @@ public class HeadController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GetComponent<MeshRenderer>().enabled = false;
     }
 
     // Update is called once per frame
@@ -22,9 +23,17 @@ public class HeadController : MonoBehaviour
         transform.position = headAnchor.transform.position;
     }
 
-	void OnCollisionEnter(Collision collision)
+	void OnTriggerEnter(Collider other)
     {
-        txt.GetComponent<Text>().text = "Collision!";
+        if(other.gameObject.CompareTag("Rods")){
+            txt.GetComponent<Text>().text = "Collision!";
+        }
+    }
+
+    void OnTriggerExit(Collider other){
+        if(other.gameObject.CompareTag("Rods")){
+            txt.GetComponent<Text>().text = "No Collition";
+        }
     }
 
 }
