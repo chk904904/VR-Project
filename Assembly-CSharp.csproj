@@ -64,7 +64,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\ButtonListener.cs" />
+    <Compile Include="Assets\ChinDown.cs" />
+    <Compile Include="Assets\ControllerDetection.cs" />
+    <Compile Include="Assets\GameStartButton.cs" />
+    <Compile Include="Assets\GloveFollowing.cs" />
+    <Compile Include="Assets\HeadTracking.cs" />
     <Compile Include="Assets\ModelController.cs" />
+    <Compile Include="Assets\MovementDetection.cs" />
     <Compile Include="Assets\Oculus\AudioManager\Scenes\Scripts\TestScript.cs" />
     <Compile Include="Assets\Oculus\AudioManager\Scripts\Audio\AmbienceEmitter.cs" />
     <Compile Include="Assets\Oculus\AudioManager\Scripts\Audio\AudioManager.cs" />
@@ -242,10 +248,17 @@
     <Compile Include="Assets\Quantum Tek\Quantum UI\Scripts\QUI_TabGroup.cs" />
     <Compile Include="Assets\Quantum Tek\Quantum UI\Scripts\QUI_TabWindow.cs" />
     <Compile Include="Assets\Quantum Tek\Quantum UI\Scripts\QUI_Window.cs" />
+    <Compile Include="Assets\RestartTraining.cs" />
+    <Compile Include="Assets\ScoreController.cs" />
     <Compile Include="Assets\ScoreCounter.cs" />
+    <Compile Include="Assets\StartGlove.cs" />
+    <Compile Include="Assets\TutorialController.cs" />
+    <Compile Include="Assets\TutorialRestart.cs" />
     <Compile Include="Assets\audioController.cs" />
+    <Compile Include="Assets\handsUp.cs" />
     <Compile Include="Assets\headPosTracker.cs" />
     <Compile Include="Assets\timer.cs" />
+    <Compile Include="Assets\tutorialWarning.cs" />
     <None Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Shaders\XingLightShader.shader" />
     <None Include="Assets\Oculus\Avatar\Resources\Materials\AvatarMaterialStateShader.cginc" />
     <None Include="Assets\Oculus\SampleFramework\Usage\HandsTrainExample\Shaders\ButtonGlow.shader" />

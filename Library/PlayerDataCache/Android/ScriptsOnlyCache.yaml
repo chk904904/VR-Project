@@ -1,32 +1,18 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
-    - ButtonListener
+    - GloveFollowing
+    - HeadTracking
+    - MovementDetection
     - ONSPSettings
-    - OculusSampleFramework.ButtonController
-    - OculusSampleFramework.ButtonTriggerZone
-    - OculusSampleFramework.FingerTipPokeTool
-    - OculusSampleFramework.FingerTipPokeToolView
-    - OculusSampleFramework.HandsManager
-    - OculusSampleFramework.InteractableToolsCreator
-    - OculusSampleFramework.InteractableToolsInputRouter
-    - OculusSampleFramework.RayTool
-    - OculusSampleFramework.RayToolView
-    - OculusSampleFramework.TrainButtonVisualController
-    - PatternController
-    - timer
+    - ScoreController
     Oculus.VR.Editor.dll:
     - Assets.Oculus.VR.Editor.OVRPlatformToolSettings
     - OVRConfig
     Oculus.VR.dll:
     - OVRCameraRig
-    - OVRHand
     - OVRHeadsetEmulator
     - OVRManager
-    - OVRMesh
-    - OVRMeshRenderer
-    - OVRSkeleton
-    - OVRSkeletonRenderer
     Unity.InputSystem.dll:
     - UnityEngine.InputSystem.InputSettings
     - UnityEngine.InputSystem.InputSystemObject
@@ -43,15 +29,6 @@ ScriptsOnlyBuild:
     - Unity.XR.Oculus.OculusSettings
     Unity.XR.WindowsMixedReality.dll:
     - UnityEngine.XR.WindowsMR.WindowsMRLoader
-    UnityEditor.Graphs.dll:
-    - UnityEditor.Graphs.AnimationBlendTree.Graph
-    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnimatorStateTransitionInspector
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
-    - UnityEditor.Graphs.AnimationStateMachine.Graph
-    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
-    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -66,7 +43,7 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.Text
   sceneClasses:
-    Assets/Scenes/testUpdate.unity:
+    Assets/Scenes/Scene(Dodge).unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -87,9 +64,11 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 49
       Script: {instanceID: 0}
-    - Class: 65
+    - Class: 54
       Script: {instanceID: 0}
-    - Class: 74
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
       Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
@@ -99,81 +78,53 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 89
       Script: {instanceID: 0}
-    - Class: 90
-      Script: {instanceID: 0}
-    - Class: 91
-      Script: {instanceID: 0}
-    - Class: 95
-      Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11438}
-    - Class: 114
-      Script: {instanceID: 11440}
-    - Class: 114
       Script: {instanceID: 11442}
     - Class: 114
-      Script: {instanceID: 11448}
+      Script: {instanceID: 11446}
     - Class: 114
-      Script: {instanceID: 11486}
+      Script: {instanceID: 11450}
     - Class: 114
-      Script: {instanceID: 11578}
+      Script: {instanceID: 11454}
     - Class: 114
-      Script: {instanceID: 11800}
+      Script: {instanceID: 11458}
     - Class: 114
-      Script: {instanceID: 11922}
+      Script: {instanceID: 11460}
     - Class: 114
-      Script: {instanceID: 12466}
+      Script: {instanceID: 11594}
     - Class: 114
-      Script: {instanceID: 12554}
+      Script: {instanceID: 11820}
     - Class: 114
-      Script: {instanceID: 12576}
+      Script: {instanceID: 12262}
     - Class: 114
-      Script: {instanceID: 12764}
+      Script: {instanceID: 12616}
     - Class: 114
-      Script: {instanceID: 12972}
+      Script: {instanceID: 13018}
     - Class: 114
-      Script: {instanceID: 13404}
+      Script: {instanceID: 13462}
     - Class: 114
-      Script: {instanceID: 13472}
+      Script: {instanceID: 14924}
     - Class: 114
-      Script: {instanceID: 13612}
+      Script: {instanceID: 15028}
     - Class: 114
-      Script: {instanceID: 13654}
+      Script: {instanceID: 15036}
     - Class: 114
-      Script: {instanceID: 13786}
+      Script: {instanceID: 15466}
     - Class: 114
-      Script: {instanceID: 13788}
+      Script: {instanceID: 15640}
     - Class: 114
-      Script: {instanceID: 13848}
+      Script: {instanceID: 15688}
     - Class: 114
-      Script: {instanceID: 14186}
-    - Class: 114
-      Script: {instanceID: 14528}
-    - Class: 114
-      Script: {instanceID: 14824}
-    - Class: 114
-      Script: {instanceID: 14926}
-    - Class: 114
-      Script: {instanceID: 15102}
-    - Class: 114
-      Script: {instanceID: 15284}
-    - Class: 114
-      Script: {instanceID: 15350}
-    - Class: 114
-      Script: {instanceID: 15362}
-    - Class: 114
-      Script: {instanceID: 15520}
-    - Class: 114
-      Script: {instanceID: 15524}
-    - Class: 114
-      Script: {instanceID: 15652}
+      Script: {instanceID: 15750}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
+      Script: {instanceID: 0}
+    - Class: 135
       Script: {instanceID: 0}
     - Class: 136
       Script: {instanceID: 0}
@@ -196,16 +147,40 @@ ScriptsOnlyBuild:
   scriptHashData:
   - hash:
       serializedVersion: 2
+      Hash: 5f1752ed2092162f016c19510c28a8b9
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Button
+  - hash:
+      serializedVersion: 2
+      Hash: 7072231382eb3c4871b3dd75ad0227e1
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Slider
+  - hash:
+      serializedVersion: 2
       Hash: 89f9a1b4c64db9559e39f4a2e3bfaadd
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Image
   - hash:
       serializedVersion: 2
+      Hash: aa88ae22474df55295327e4ee99e5a24
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Toggle
+  - hash:
+      serializedVersion: 2
       Hash: d251bf88db6c95a6b1aa0b69298da9ef
     assemblyName: UnityEngine.SpatialTracking.dll
     namespaceName: UnityEngine.SpatialTracking
     className: TrackedPoseDriver
+  - hash:
+      serializedVersion: 2
+      Hash: d4020bafcd3ccbb5601a6e6c8ac78be0
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: ScrollRect
   - hash:
       serializedVersion: 2
       Hash: aeb62f729c52c814dec86c47dcac1471
@@ -220,10 +195,22 @@ ScriptsOnlyBuild:
     className: LayoutElement
   - hash:
       serializedVersion: 2
-      Hash: 5f1752ed2092162f016c19510c28a8b9
+      Hash: cc4274b586df3c02688bac01b88bd16c
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.EventSystems
+    className: EventSystem
+  - hash:
+      serializedVersion: 2
+      Hash: aba7b2852ef61d175dd9602e7723d5e5
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
-    className: Button
+    className: Mask
+  - hash:
+      serializedVersion: 2
+      Hash: 4bc4346a71a8df53a6b106f68ef3a190
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: CanvasScaler
   - hash:
       serializedVersion: 2
       Hash: ae83e830e7a90c0aff918c4c2e520825
@@ -232,22 +219,22 @@ ScriptsOnlyBuild:
     className: GraphicRaycaster
   - hash:
       serializedVersion: 2
-      Hash: 7072231382eb3c4871b3dd75ad0227e1
+      Hash: 0fd6822f6177297bd0eb4d83cc7a9030
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
-    className: Slider
+    className: ToggleGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 5611871a5c7d7c75e5d1e17623e14abf
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: QuantumTek.QuantumUI
+    className: QUI_SceneTransition
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ONSPVersion
-  - hash:
-      serializedVersion: 2
-      Hash: 4bc4346a71a8df53a6b106f68ef3a190
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: CanvasScaler
   - hash:
       serializedVersion: 2
       Hash: bf5cb87c773ea378a3f5ac036aab367b
@@ -436,6 +423,12 @@ ScriptsOnlyBuild:
     className: TeleportationProvider
   - hash:
       serializedVersion: 2
+      Hash: 1dbb3c0b6e16802b1f4600e45b839c11
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RestartTraining
+  - hash:
+      serializedVersion: 2
       Hash: 98aa0a0c8ff2910eb12af89c7e0eb661
     assemblyName: Unity.XR.Management.dll
     namespaceName: UnityEngine.XR.Management
@@ -460,6 +453,12 @@ ScriptsOnlyBuild:
     className: TrainButtonVisualController
   - hash:
       serializedVersion: 2
+      Hash: 40c42067e839a7301189860141e8ae57
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameStartButton
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools.TestRunner.Callbacks
@@ -470,6 +469,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem.OnScreen
     className: OnScreenStick
+  - hash:
+      serializedVersion: 2
+      Hash: 5b60af21cfadbb5b217d16ca255e6692
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ControllerDetection
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -556,6 +561,12 @@ ScriptsOnlyBuild:
     className: OVRPlayerController
   - hash:
       serializedVersion: 2
+      Hash: aaf9fcdddbc82b9995bf0fe9f4c42fc1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: QuantumTek.QuantumUI
+    className: QUI_Window
+  - hash:
+      serializedVersion: 2
       Hash: 8aa3d6ccbcb54ee8db6c1229854adaaa
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -608,6 +619,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: TeleportAimHandlerParabolic
+  - hash:
+      serializedVersion: 2
+      Hash: 801559f3616c2c14c1b4212f47581137
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HeadTracking
   - hash:
       serializedVersion: 2
       Hash: 2d6c48bcbb0c5879a658aca82ca624a7
@@ -706,6 +723,12 @@ ScriptsOnlyBuild:
     className: TrackedDeviceRaycaster
   - hash:
       serializedVersion: 2
+      Hash: 341269d48a54a038bf7f7507169e65c3
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ChinDown
+  - hash:
+      serializedVersion: 2
       Hash: 5ab533713adae59372fb3e10a585c186
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
@@ -746,12 +769,6 @@ ScriptsOnlyBuild:
     assemblyName: Oculus.VR.dll
     namespaceName: 
     className: OVRResources
-  - hash:
-      serializedVersion: 2
-      Hash: aba7b2852ef61d175dd9602e7723d5e5
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Mask
   - hash:
       serializedVersion: 2
       Hash: 9337d9b49ef69a8f6b3c9e840a9d2fe6
@@ -820,6 +837,12 @@ ScriptsOnlyBuild:
     className: OvrAvatarSettings
   - hash:
       serializedVersion: 2
+      Hash: 6b594516dda2dcdb46a0de686133e0cc
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: QuantumTek.QuantumUI
+    className: QUI_ElementAudio
+  - hash:
+      serializedVersion: 2
       Hash: 5777c70a25f193ad387a5581565b81b9
     assemblyName: Assembly-CSharp.dll
     namespaceName: OVR
@@ -830,12 +853,6 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: EnumerableTestState
-  - hash:
-      serializedVersion: 2
-      Hash: cc4274b586df3c02688bac01b88bd16c
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.EventSystems
-    className: EventSystem
   - hash:
       serializedVersion: 2
       Hash: e269129a92a880f5211d20d6b89e9cf1
@@ -994,6 +1011,12 @@ ScriptsOnlyBuild:
     className: OVRLipSyncSequence
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: QuantumTek.QuantumUI
+    className: QUI_Menu
+  - hash:
+      serializedVersion: 2
       Hash: 373688f86e51a7cff81489e2b39ee3bb
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1036,10 +1059,22 @@ ScriptsOnlyBuild:
     className: XRSocketInteractor
   - hash:
       serializedVersion: 2
+      Hash: 548fef78b40a06715770a477e5e2f67d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: QuantumTek.QuantumUI
+    className: QUI_ElementAudioPreset
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem.Editor
     className: InputActionImporterEditor
+  - hash:
+      serializedVersion: 2
+      Hash: 86f232747f53a969ee78b68f860a21d8
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ModelController
   - hash:
       serializedVersion: 2
       Hash: 287a4aa7392bcfb309b4d7b4dc89eb3c
@@ -1078,6 +1113,12 @@ ScriptsOnlyBuild:
     className: ActionBasedSnapTurnProvider
   - hash:
       serializedVersion: 2
+      Hash: aaf9fcdddbc82b9995bf0fe9f4c42fc1
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: QuantumTek.QuantumUI
+    className: QUI_Tab
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Oculus.VR.dll
     namespaceName: 
@@ -1088,12 +1129,6 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: OvrAvatarSkinnedMeshRenderPBSComponent
-  - hash:
-      serializedVersion: 2
-      Hash: d4020bafcd3ccbb5601a6e6c8ac78be0
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: ScrollRect
   - hash:
       serializedVersion: 2
       Hash: 1eb9aed3cd6453fbc580cf51127908af
@@ -1150,6 +1185,18 @@ ScriptsOnlyBuild:
     className: audioController
   - hash:
       serializedVersion: 2
+      Hash: 566b3fd8f13f8214ca6d70e8b47b0047
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: QuantumTek.QuantumUI
+    className: QUI_SwitchToggle
+  - hash:
+      serializedVersion: 2
+      Hash: f62ddde1beeb5b545c3e9c6c2abbc6fe
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: QuantumTek.QuantumUI
+    className: QUI_TabGroup
+  - hash:
+      serializedVersion: 2
       Hash: 22dc216204f0e65ce2161bd7b6ecf06b
     assemblyName: Oculus.VR.dll
     namespaceName: 
@@ -1202,6 +1249,12 @@ ScriptsOnlyBuild:
     assemblyName: Oculus.Platform.dll
     namespaceName: Oculus.Platform.Samples.VrHoops
     className: BallEjector
+  - hash:
+      serializedVersion: 2
+      Hash: 7670dbbacd28a246eaafc3ba5a4111e0
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ScoreCounter
   - hash:
       serializedVersion: 2
       Hash: 61c7e440799059d089dd591427242f79
@@ -1450,6 +1503,12 @@ ScriptsOnlyBuild:
     className: OnScreenButton
   - hash:
       serializedVersion: 2
+      Hash: d0bce6e4e7c643fd7b9bbf400eddbb3a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: StartGlove
+  - hash:
+      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Oculus.VR.dll
     namespaceName: 
@@ -1544,6 +1603,12 @@ ScriptsOnlyBuild:
     assemblyName: Oculus.Platform.dll
     namespaceName: Oculus.Platform.Samples.VrBoardGame
     className: EyeCamera
+  - hash:
+      serializedVersion: 2
+      Hash: 62c3748d20ea5128c4dca002057da067
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: QuantumTek.QuantumUI
+    className: QUI_TabWindow
   - hash:
       serializedVersion: 2
       Hash: 285f5d7c369d870b93f4a2cbcec118e4
@@ -1696,6 +1761,12 @@ ScriptsOnlyBuild:
     className: OvrAvatarSettingsEditor
   - hash:
       serializedVersion: 2
+      Hash: dadcdf153bb29f94762160ed5ded691b
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: tutorialWarning
+  - hash:
+      serializedVersion: 2
       Hash: 8302a05adec609c4b10f8b6cc3443e4c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1724,6 +1795,12 @@ ScriptsOnlyBuild:
     assemblyName: Oculus.Platform.dll
     namespaceName: Oculus.Platform.Samples.VrHoops
     className: PlayerArea
+  - hash:
+      serializedVersion: 2
+      Hash: a1d4955116bd68eee5beb34d46580853
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: QuantumTek.QuantumUI
+    className: QUI_OptionList
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1780,6 +1857,12 @@ ScriptsOnlyBuild:
     className: EnableSwitch
   - hash:
       serializedVersion: 2
+      Hash: 1dbb3c0b6e16802b1f4600e45b839c11
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TutorialRestart
+  - hash:
+      serializedVersion: 2
       Hash: dbb1a6051987b4922d94d1caad387b1c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
@@ -1828,6 +1911,12 @@ ScriptsOnlyBuild:
     className: GoalMover
   - hash:
       serializedVersion: 2
+      Hash: 2a448b21d47e8670129d2e2928c97ce6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: QuantumTek.QuantumUI
+    className: QUI_Bar
+  - hash:
+      serializedVersion: 2
       Hash: 34c971ccf5a4d4c276f7753251cba95d
     assemblyName: Oculus.VR.dll
     namespaceName: 
@@ -1844,6 +1933,12 @@ ScriptsOnlyBuild:
     assemblyName: Oculus.VR.Editor.dll
     namespaceName: 
     className: OVRConfig
+  - hash:
+      serializedVersion: 2
+      Hash: 4d266635cc4d6ec491784922ab564090
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: handsUp
   - hash:
       serializedVersion: 2
       Hash: 8b9f42d72019bde2f9fe0667762eaff3
@@ -1904,6 +1999,18 @@ ScriptsOnlyBuild:
     assemblyName: Oculus.VR.dll
     namespaceName: UnityEngine.EventSystems
     className: OVRInputModule
+  - hash:
+      serializedVersion: 2
+      Hash: d4b5cf007c4a3968b2c250c3025c5eae
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: MovementDetection
+  - hash:
+      serializedVersion: 2
+      Hash: 790442c015a4dbcdf9903595fc3f131e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: QuantumTek.QuantumUI
+    className: QUI_ElementAnimationPreset
   - hash:
       serializedVersion: 2
       Hash: e0fd6b206f44251ddce06e242ee39fb8
@@ -2170,22 +2277,28 @@ ScriptsOnlyBuild:
     className: StandaloneInputModule
   - hash:
       serializedVersion: 2
-      Hash: aa88ae22474df55295327e4ee99e5a24
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Toggle
-  - hash:
-      serializedVersion: 2
       Hash: 8220b46879dc5e37db1b940c938f5744
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: SignalEmitter
   - hash:
       serializedVersion: 2
+      Hash: 575d7dcc18aad705af08468ac3184f95
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: QuantumTek.QuantumUI
+    className: QUI_ElementAnimator
+  - hash:
+      serializedVersion: 2
       Hash: cd06391f9225499fb9ea605ab668b015
     assemblyName: Oculus.Platform.dll
     namespaceName: Oculus.Platform.Samples.VrHoops
     className: VREyeRaycaster
+  - hash:
+      serializedVersion: 2
+      Hash: 6ab4620049a539ca08225cecdc9cc911
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GloveFollowing
   - hash:
       serializedVersion: 2
       Hash: 0e8dbd0a181c0f62f8eb34001deff1c7
@@ -2200,6 +2313,12 @@ ScriptsOnlyBuild:
     className: OVRLipSyncContextTextureFlip
   - hash:
       serializedVersion: 2
+      Hash: afe67ee6e9e1245788f9be4d9b6f7244
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: TutorialController
+  - hash:
+      serializedVersion: 2
       Hash: 880d064aa7bf32abd8295b0fe07bcc13
     assemblyName: Unity.InputSystem.dll
     namespaceName: UnityEngine.InputSystem
@@ -2212,16 +2331,16 @@ ScriptsOnlyBuild:
     className: DebugUISample
   - hash:
       serializedVersion: 2
-      Hash: 0fd6822f6177297bd0eb4d83cc7a9030
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: ToggleGroup
-  - hash:
-      serializedVersion: 2
       Hash: a3052a9b627ef5233ba3901555c034f2
     assemblyName: Unity.XR.Interaction.Toolkit.dll
     namespaceName: UnityEngine.XR.Interaction.Toolkit
     className: XRSimpleInteractable
+  - hash:
+      serializedVersion: 2
+      Hash: bcc4f159084953a91fc9306bfc8e1e76
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ScoreController
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -2240,85 +2359,7 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 5611871a5c7d7c75e5d1e17623e14abf
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: QuantumTek.QuantumUI
-    className: QUI_SceneTransition
-  - hash:
-      serializedVersion: 2
-      Hash: aaf9fcdddbc82b9995bf0fe9f4c42fc1
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: QuantumTek.QuantumUI
-    className: QUI_Window
-  - hash:
-      serializedVersion: 2
-      Hash: 6b594516dda2dcdb46a0de686133e0cc
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: QuantumTek.QuantumUI
-    className: QUI_ElementAudio
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: QuantumTek.QuantumUI
-    className: QUI_Menu
-  - hash:
-      serializedVersion: 2
-      Hash: 548fef78b40a06715770a477e5e2f67d
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: QuantumTek.QuantumUI
-    className: QUI_ElementAudioPreset
-  - hash:
-      serializedVersion: 2
-      Hash: aaf9fcdddbc82b9995bf0fe9f4c42fc1
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: QuantumTek.QuantumUI
-    className: QUI_Tab
-  - hash:
-      serializedVersion: 2
-      Hash: 566b3fd8f13f8214ca6d70e8b47b0047
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: QuantumTek.QuantumUI
-    className: QUI_SwitchToggle
-  - hash:
-      serializedVersion: 2
-      Hash: f62ddde1beeb5b545c3e9c6c2abbc6fe
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: QuantumTek.QuantumUI
-    className: QUI_TabGroup
-  - hash:
-      serializedVersion: 2
-      Hash: 62c3748d20ea5128c4dca002057da067
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: QuantumTek.QuantumUI
-    className: QUI_TabWindow
-  - hash:
-      serializedVersion: 2
-      Hash: a1d4955116bd68eee5beb34d46580853
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: QuantumTek.QuantumUI
-    className: QUI_OptionList
-  - hash:
-      serializedVersion: 2
-      Hash: 2a448b21d47e8670129d2e2928c97ce6
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: QuantumTek.QuantumUI
-    className: QUI_Bar
-  - hash:
-      serializedVersion: 2
-      Hash: 790442c015a4dbcdf9903595fc3f131e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: QuantumTek.QuantumUI
-    className: QUI_ElementAnimationPreset
-  - hash:
-      serializedVersion: 2
-      Hash: 575d7dcc18aad705af08468ac3184f95
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: QuantumTek.QuantumUI
-    className: QUI_ElementAnimator
   platform: 13
   scenePathNames:
-  - Assets/Scenes/testUpdate.unity
-  playerPath: C:/Users/kuanc/Desktop/Project3/VR-Test/VR-Project/build1.apk
+  - Assets/Scenes/Scene(Dodge).unity
+  playerPath: C:/Users/kuanc/Desktop/Project3/VR-Test/VR-Project/VRcules(04-25).apk
