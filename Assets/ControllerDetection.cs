@@ -23,6 +23,11 @@ public class ControllerDetection : MonoBehaviour
     public GameObject jabvideoPlayer;
     public GameObject hookvideoPlayer;
     public GameObject uppercutvideoPlayer;
+    public GameObject trainingReminder;
+    public GameObject restartTrainingButton;
+    public GameObject[] tutorialReminder = new GameObject[3];
+    public GameObject restartTutorialButton;
+
 
 
 
@@ -39,6 +44,8 @@ public class ControllerDetection : MonoBehaviour
     private int status = 1;
     private float timerCounter = 0f;
     private StringBuilder sb = new StringBuilder();
+    private bool startCount = false;
+    private int startCounter = 0;
 
     private int[][] combos = {
         new int[]{1,2,3},
@@ -89,14 +96,32 @@ public class ControllerDetection : MonoBehaviour
         punch.text = "";
         ac = this.GetComponentInChildren<AudioSource>();
         anim = this.GetComponent<Animator>();
+        restartTutorialButton.SetActive(true);
         StartCoroutine(PlayVideo(12f, 1));
 
+    }
+
+    public void restartTutorial()
+    {
+        tutorialIndex = 1;
+        status = 1;
+        jabvideoPlayer.SetActive(false);
+        tutorialReminder[0].SetActive(false);
+        hookvideoPlayer.SetActive(false);
+        tutorialReminder[1].SetActive(false);
+        uppercutvideoPlayer.SetActive(false);
+        tutorialReminder[2].SetActive(false);
+        videoScreen.SetActive(false);
+        isPlayingVideo = false;
+        punchingBag.GetComponent<Renderer>().material = bagMaterials[0];
+        StartCoroutine(PlayVideo(12f, 1));
     }
     private void OnTriggerEnter(Collider other)
     {
         if (!isHitted)
         {
             isHitted = true;
+            startCount = true;
             GF = other.gameObject.GetComponent<GloveFollowing>();
             enterPosition = GF.RelativePosition();
         }
@@ -107,9 +132,10 @@ public class ControllerDetection : MonoBehaviour
     {
         if (isHitted && GF != null && other.gameObject.GetComponent<GloveFollowing>().m_controller.Equals(GF.m_controller))
         {
+            
             exitPosition = GF.RelativePosition();
             int hitValue = PunchRecognition(exitPosition - enterPosition, GF.gameObject.name);
-            if (hitValue != 0)
+            if (hitValue != 0 && startCounter < 20)
             {
                 StartCoroutine(TriggerVibration(GF.m_controller));
                 switch (status)
@@ -128,12 +154,35 @@ public class ControllerDetection : MonoBehaviour
                         break;
                 }
             }
-            isHitted = false;
+            if(startCounter < 20)
+            {
+                StartCoroutine(halfSecondTimer());
+            } else
+            {
+                isHitted = false;
+            }
+            
+            startCount = false;
             GF = null;
         }
  
     }
- 
+    private void Update()
+    {
+        if (startCount)
+        {
+            startCounter++;
+        }
+        else
+        {
+            startCounter = 0;
+        }
+    }
+    IEnumerator halfSecondTimer()
+    {
+        yield return new WaitForSeconds(0.2f);
+        isHitted = false;
+    }
     IEnumerator startTimer()
     {
         while (status == 3)
@@ -177,6 +226,7 @@ public class ControllerDetection : MonoBehaviour
                         punch.text = "";
                         comboName.text = "Now Let's try Combos";
                         StartCoroutine(BagBouncing(tutorialIndex, true, 0));
+                        restartTutorialButton.SetActive(false);
                         StartCoroutine(startPractice());
                         status = 0;
                         break;
@@ -273,21 +323,29 @@ public class ControllerDetection : MonoBehaviour
 
     }
 
+    public void _startTest()
+    {
+        status = 3;
+        timerCounter = 0;
+        StartCoroutine(startTest());
+    }
 
     IEnumerator startTest()
     {
         yield return new WaitForSeconds(1.0f);
-        comboName.text = "<size=4><color=#FFC166>Try to complete all the combos</color></size>" + Environment.NewLine + "<size=4><color=#FFC166>as fast as you can!</color></size>";
+        trainingReminder.SetActive(true);
+        comboName.text = "";
         punch.text = "";
         curCombo = 0;
         curPunching = 0;
-        timer.gameObject.SetActive(true);
+        timer.gameObject.transform.parent.gameObject.SetActive(true);
         timer.text = "3";
         yield return new WaitForSeconds(1.0f);
         timer.text = "2";
         yield return new WaitForSeconds(1.0f);
         timer.text = "1";
         yield return new WaitForSeconds(1.0f);
+        trainingReminder.SetActive(false);
         status = 3;
         ac.PlayOneShot(audios[8], 2.0f);
         generateComboText(0,0, testCombos, false);
@@ -327,6 +385,7 @@ public class ControllerDetection : MonoBehaviour
                     comboName.text = "";
                     StartCoroutine(BagBouncing(punchingNumber, true, 0));
                     StopCoroutine(startTimer());
+                    restartTrainingButton.SetActive(true);
                     status = 0;
                 }
                 
@@ -466,15 +525,18 @@ public class ControllerDetection : MonoBehaviour
         {
             case 1:
                 punch.text = "";
-                comboName.text = "<size=6><color=#FFC166>1 is Jab</color></size>" + Environment.NewLine + "<size=6><color=#FFC166>2 is Cross</color></size>";
+                comboName.text = "";
+                tutorialReminder[0].SetActive(true);
                 break;
             case 3:
                 punch.text = "";
-                comboName.text = "<size=6><color=#FFC166>3 is Left Hook</color></size>" + Environment.NewLine + "<size=6><color=#FFC166>4 is Right Hook</color></size>";
+                comboName.text = "";
+                tutorialReminder[1].SetActive(true);
                 break;
             case 5:
                 punch.text = "";
-                comboName.text = "<size=6><color=#FFC166>5 is Left Uppercut</color></size>" + Environment.NewLine + "<size=6><color=#FFC166>6 is Right Uppercut</color></size>";
+                comboName.text = "";
+                tutorialReminder[2].SetActive(true);
                 break;
         }
         yield return new WaitForSeconds(duration);
@@ -482,12 +544,15 @@ public class ControllerDetection : MonoBehaviour
         {
             case 1:
                 jabvideoPlayer.SetActive(false);
+                tutorialReminder[0].SetActive(false);
                 break;
             case 3:
                 hookvideoPlayer.SetActive(false);
+                tutorialReminder[1].SetActive(false);
                 break;
             case 5:
                 uppercutvideoPlayer.SetActive(false);
+                tutorialReminder[2].SetActive(false);
                 break;
         }
         videoScreen.SetActive(false);
